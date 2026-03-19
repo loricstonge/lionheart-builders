@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIONHEART PRODUCTIONS — Collective Vision 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #111110;
+    --bg2: #1a1a18;
+    --bg3: #222220;
+    --border: rgba(255,255,255,0.08);
+    --text: #e8e6e0;
+    --muted: #888880;
+    --faint: #444440;
+
+    --lh: #7B6FD4;
+    --lh-light: #EEEDFE;
+    --lh-mid: #534AB7;
+    --lh-dark: #2A2460;
+
+    --moksha: #3B8FD4;
+    --moksha-light: #E6F1FB;
+    --moksha-mid: #185FA5;
+    --moksha-dark: #0A2E52;
+
+    --fidelio: #2BAB7A;
+    --fidelio-light: #E1F5EE;
+    --fidelio-mid: #0F6E56;
+    --fidelio-dark: #063D30;
+
+    --lxr: #D4603B;
+    --lxr-light: #FAECE7;
+    --lxr-mid: #993C1D;
+    --lxr-dark: #4A1B0C;
+
+    --painting: #D4A23B;
+    --painting-light: #FAEEDA;
+    --painting-mid: #854F0B;
+    --painting-dark: #412402;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .site-header {
+    padding: 2.5rem 2rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .site-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: 0.05em;
+    color: var(--text);
+    line-height: 1;
+  }
+  .site-title span { color: var(--lh); }
+  .site-meta {
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: right;
+  }
+
+  /* TABS */
+  .tabs-wrap {
+    padding: 1rem 2rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tabs-wrap::-webkit-scrollbar { display: none; }
+
+  .tab {
+    padding: 0.65rem 1.1rem;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--text); border-bottom-color: var(--text); }
+  .tab[data-color="lh"].active { color: var(--lh); border-bottom-color: var(--lh); }
+  .tab[data-color="moksha"].active { color: var(--moksha); border-bottom-color: var(--moksha); }
+  .tab[data-color="fidelio"].active { color: var(--fidelio); border-bottom-color: var(--fidelio); }
+  .tab[data-color="lxr"].active { color: var(--lxr); border-bottom-color: var(--lxr); }
+  .tab[data-color="painting"].active { color: var(--painting); border-bottom-color: var(--painting); }
+
+  /* CONTENT */
+  .section { display: none; padding: 2.5rem 2rem; max-width: 1100px; }
+  .section.active { display: block; }
+
+  /* VISION TAB */
+  .vision-quote {
+    border-left: 3px solid var(--lh);
+    padding: 1.5rem 2rem;
+    margin-bottom: 2.5rem;
+    background: var(--bg2);
+    border-radius: 0 12px 12px 0;
+  }
+  .vision-quote p {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+    margin-bottom: 2.5rem;
+  }
+  .pillar {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .pillar:hover { border-color: rgba(255,255,255,0.15); }
+  .pillar-icon { font-size: 1.3rem; margin-bottom: 0.6rem; }
+  .pillar-title { font-size: 0.9rem; font-weight: 500; color: var(--text); margin-bottom: 0.4rem; }
+  .pillar-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+
+  .standard-block {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+  }
+  .standard-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  .standard-text { font-size: 0.9rem; color: var(--text); line-height: 1.6; }
+
+  /* PROJECT TABS */
+  .proj-vision {
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    border-left: 3px solid;
+  }
+  .proj-vision p {
+    font-size: 1rem;
+    color: var(--text);
+    line-height: 1.75;
+    margin-bottom: 0.75rem;
+  }
+  .proj-vision p:last-child { margin-bottom: 0; }
+
+  .proj-vision.lh { border-color: var(--lh); background: rgba(123,111,212,0.07); }
+  .proj-vision.moksha { border-color: var(--moksha); background: rgba(59,143,212,0.07); }
+  .proj-vision.fidelio { border-color: var(--fidelio); background: rgba(43,171,122,0.07); }
+  .proj-vision.lxr { border-color: var(--lxr); background: rgba(212,96,59,0.07); }
+  .proj-vision.painting { border-color: var(--painting); background: rgba(212,162,59,0.07); }
+
+  .milestones-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+  }
+  .milestone-list { display: flex; flex-direction: column; gap: 8px; }
+  .milestone {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 0.75rem 1rem;
+    background: var(--bg2);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  .milestone-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+  .milestone-dot.lh { background: var(--lh); }
+  .milestone-dot.moksha { background: var(--moksha); }
+  .milestone-dot.fidelio { background: var(--fidelio); }
+  .milestone-dot.lxr { background: var(--lxr); }
+  .milestone-dot.painting { background: var(--painting); }
+
+  .milestone-text { font-size: 0.85rem; color: var(--text); line-height: 1.55; }
+  .milestone-text strong { font-weight: 500; color: var(--muted); }
+
+  .horizon-block {
+    margin-top: 1.5rem;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid;
+  }
+  .horizon-block.lh { border-color: rgba(123,111,212,0.3); background: rgba(123,111,212,0.07); }
+  .horizon-block.moksha { border-color: rgba(59,143,212,0.3); background: rgba(59,143,212,0.07); }
+  .horizon-block p { font-size: 0.9rem; color: var(--text); line-height: 1.65; }
+
+  /* PHASES TAB */
+  .phase-block { margin-bottom: 2rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .phase-header {
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .phase-badge {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .phase-name { font-size: 1rem; font-weight: 500; color: var(--text); }
+  .phase-tagline { font-size: 0.8rem; color: var(--muted); margin-left: auto; }
+
+  .ph1 .phase-header { background: rgba(43,171,122,0.12); }
+  .ph1 .phase-badge { background: rgba(43,171,122,0.2); color: var(--fidelio); }
+  .ph2 .phase-header { background: rgba(212,162,59,0.12); }
+  .ph2 .phase-badge { background: rgba(212,162,59,0.2); color: var(--painting); }
+  .ph3 .phase-header { background: rgba(212,96,59,0.12); }
+  .ph3 .phase-badge { background: rgba(212,96,59,0.2); color: var(--lxr); }
+  .ph4 .phase-header { background: rgba(123,111,212,0.12); }
+  .ph4 .phase-badge { background: rgba(123,111,212,0.2); color: var(--lh); }
+
+  .phase-rows { padding: 0.5rem 0; }
+  .phase-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 0;
+    border-top: 1px solid var(--border);
+    padding: 0.85rem 1.5rem;
+    align-items: start;
+  }
+  .phase-proj {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-top: 2px;
+  }
+  .phase-proj.lh { color: var(--lh); }
+  .phase-proj.moksha { color: var(--moksha); }
+  .phase-proj.fidelio { color: var(--fidelio); }
+  .phase-proj.lxr { color: var(--lxr); }
+  .phase-proj.painting { color: var(--painting); }
+  .phase-proj.all { color: var(--muted); }
+
+  .phase-content { font-size: 0.85rem; color: var(--text); line-height: 1.6; }
+
+  /* TIMELINE TAB */
+  .timeline-wrap { overflow-x: auto; padding-bottom: 1rem; }
+  .tl-note { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.25rem; }
+
+  table.timeline {
+    border-collapse: separate;
+    border-spacing: 4px;
+    min-width: 900px;
+    width: 100%;
+  }
+  table.timeline th {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    padding: 6px 4px;
+  }
+  table.timeline th:first-child { text-align: left; width: 90px; }
+  table.timeline td {
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    vertical-align: top;
+    text-align: left;
+  }
+  table.timeline td:first-child {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: transparent;
+    padding-left: 0;
+    vertical-align: middle;
+  }
+
+  /* Project colors with saturation levels for phases */
+  /* LIONHEART */
+  .tl-lh-1 { background: rgba(123,111,212,0.15); color: #b8b0f0; }
+  .tl-lh-2 { background: rgba(123,111,212,0.28); color: #c8c2f8; }
+  .tl-lh-3 { background: rgba(123,111,212,0.22); color: #b8b0f0; }
+  .tl-lh-4 { background: rgba(123,111,212,0.38); color: #d4d0ff; }
+
+  /* MOKSHA */
+  .tl-mk-1 { background: rgba(59,143,212,0.15); color: #88bce8; }
+  .tl-mk-2 { background: rgba(59,143,212,0.28); color: #9ecaf0; }
+  .tl-mk-3 { background: rgba(59,143,212,0.22); color: #88bce8; }
+  .tl-mk-4 { background: rgba(59,143,212,0.38); color: #b8d8f8; }
+
+  /* FIDELIO */
+  .tl-fd-1 { background: rgba(43,171,122,0.15); color: #7fcfb0; }
+  .tl-fd-2 { background: rgba(43,171,122,0.28); color: #8fddc0; }
+  .tl-fd-3 { background: rgba(43,171,122,0.22); color: #7fcfb0; }
+  .tl-fd-4 { background: rgba(43,171,122,0.38); color: #a0e8cc; }
+
+  /* LXR */
+  .tl-lx-1 { background: rgba(212,96,59,0.15); color: #e8a080; }
+  .tl-lx-2 { background: rgba(212,96,59,0.28); color: #f0b090; }
+  .tl-lx-3 { background: rgba(212,96,59,0.22); color: #e8a080; }
+  .tl-lx-4 { background: rgba(212,96,59,0.12); color: #d08868; }
+
+  /* PAINTING */
+  .tl-pt-1 { background: rgba(212,162,59,0.15); color: #e0c080; }
+  .tl-pt-2 { background: rgba(212,162,59,0.28); color: #ecd090; }
+  .tl-pt-3 { background: rgba(212,162,59,0.38); color: #f8e0a0; }
+  .tl-pt-4 { background: rgba(212,162,59,0.12); color: #c8a860; }
+
+  /* FOOTER */
+  footer {
+    margin-top: 4rem;
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  footer .footer-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    color: var(--faint);
+  }
+  footer .footer-meta { font-size: 0.75rem; color: var(--faint); }
+
+  /* ANIMATIONS */
+  .section.active { animation: fadeIn 0.2s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 600px) {
+    .site-header, .tabs-wrap, .section { padding-left: 1rem; padding-right: 1rem; }
+    .phase-row { grid-template-columns: 80px 1fr; }
+    .phase-tagline { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-title">LIONHEART <span>PRODUCTIONS</span></div>
+  <div class="site-meta">Collective Vision & Plan<br>2026 — 2028</div>
+</header>
+
+<nav class="tabs-wrap">
+  <button class="tab active" data-tab="vision">Vision</button>
+  <button class="tab" data-tab="lionheart" data-color="lh">Lionheart</button>
+  <button class="tab" data-tab="moksha" data-color="moksha">Moksha</button>
+  <button class="tab" data-tab="fidelio" data-color="fidelio">Fidelio</button>
+  <button class="tab" data-tab="lxr" data-color="lxr">LXR</button>
+  <button class="tab" data-tab="painting" data-color="painting">Painting</button>
+  <button class="tab" data-tab="phases">Phases</button>
+  <button class="tab" data-tab="timeline">Timeline</button>
+</nav>
+
+<!-- ============================================================ -->
+<!-- VISION -->
+<!-- ============================================================ -->
+<section class="section active" id="vision">
+  <div class="vision-quote">
+    <p>We are building a professional production collective capable of creating LIONHEART full-time — from anywhere in the world — within 18 to 30 months — before the end of 2028. Everything we do between now and then is deliberate preparation: building skills, automating operations, generating revenue, and growing individually and collectively into the team that project deserves.</p>
+  </div>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-icon">⚙️</div>
+      <div class="pillar-title">Automate to liberate</div>
+      <div class="pillar-desc">MOKSHA removes the administrative weight from painting and production so the team's best hours go to creative and strategic work.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🎬</div>
+      <div class="pillar-title">Produce to grow</div>
+      <div class="pillar-desc">FIDELIO and LXR are the training ground. Every client project sharpens the skills, systems, and professionalism LIONHEART will demand.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🏗️</div>
+      <div class="pillar-title">Fund the vision</div>
+      <div class="pillar-desc">Painting generates the cash. MOKSHA builds scalable revenue. Together they fund the time and freedom the collective needs to grow.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🦁</div>
+      <div class="pillar-title">Protect LIONHEART</div>
+      <div class="pillar-desc">LIONHEART never goes to zero. Every week, regardless of external pressure, the collective gives it protected time. It is the north star.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🌍</div>
+      <div class="pillar-title">Build for freedom</div>
+      <div class="pillar-desc">Geographic independence is the goal. No painting. No local ceiling. A team that can be transplanted anywhere and produce at full capacity.</div>
+    </div>
+  </div>
+
+  <div class="standard-block">
+    <div class="standard-label">The standard</div>
+    <div class="standard-text">20% effort for a consistent, solid 80% result — that is A+ in our book. We show up, we deliver, we get better every time. We own our value. We charge what we are worth. We attract clients who deserve our level.</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- LIONHEART -->
+<!-- ============================================================ -->
+<section class="section" id="lionheart">
+  <div class="proj-vision lh">
+    <p>LIONHEART is the deepest knowledge we have access to — transmitted through men who came together like brothers to share what no one else can share.</p>
+    <p>Raw, real, unapologizing. A frequency that reconnects people to what they forgot lifetimes ago. In a world pushing men to the fringes, we have something unique to offer: a voice, a sound, a way of being that is irreplaceable. Not because we invented it — but because we were called to carry it.</p>
+    <p>LIONHEART doesn't chase an audience. It calls its people. And they come.</p>
+    <p>It has no fixed form yet. It will move through many projects, many mediums, many avatars. What doesn't change is the intent at its center — to transmit the purest sound we are capable of. To give back what sustained us. To make it accessible to those who are ready to receive it.</p>
+    <p>Everything else — FIDELIO, LXR, MOKSHA, the painting — is the training ground. Every client, every automation, every wedding filmed, every system built is sharpening us. Building the capacity, the discipline, the technical and creative strength to carry something this real without compromising it.</p>
+    <p>We measure success not by reach but by purity. The work is becoming ready.</p>
+  </div>
+
+  <div class="milestones-title">Milestones</div>
+  <div class="milestone-list">
+    <div class="milestone"><div class="milestone-dot lh"></div><div class="milestone-text"><strong>Now</strong> — Protected weekly time slot. Filming session with the Boss every 2 weeks. Extract audio bytes, write, map content, show up.</div></div>
+    <div class="milestone"><div class="milestone-dot lh"></div><div class="milestone-text"><strong>Late summer 2026</strong> — Power Weekend in Montreal with the Boss. Ground knowledge, produce, unlock the next level.</div></div>
+    <div class="milestone"><div class="milestone-dot lh"></div><div class="milestone-text"><strong>December 2026</strong> — Full 2–3 week production retreat in Mexico. The collective arrives ready. LIONHEART as full-time pursuit begins.</div></div>
+    <div class="milestone"><div class="milestone-dot lh"></div><div class="milestone-text"><strong>2027</strong> — Return with renewed clarity. Double down through low painting season (Dec–Feb). Library growing, sound developing.</div></div>
+    <div class="milestone"><div class="milestone-dot lh"></div><div class="milestone-text"><strong>December 2027</strong> — Second retreat. Deeper capacity. Clearer sound. Closer to ready.</div></div>
+    <div class="milestone"><div class="milestone-dot lh"></div><div class="milestone-text"><strong>The horizon</strong> — Full transplant. Mobile. Producing LIONHEART full time. Anywhere in the world.</div></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- MOKSHA -->
+<!-- ============================================================ -->
+<section class="section" id="moksha">
+  <div class="proj-vision moksha">
+    <p>MOKSHA is a once-in-a-generation opportunity and we are standing inside it with our eyes open.</p>
+    <p>The AI gold rush is real. The demand is infinite — every business on earth wants to save time, cut costs, and scale without hiring. Most people chasing this will sell courses, build generic tools, and disappear. We are doing the opposite: solving real problems, building integrated systems, and delivering results that speak for themselves.</p>
+    <p>What sets us apart is not the technology. Everyone has access to the same tools. What sets us apart is who we are — our professionalism, our hunger, our clarity, and the level of guidance and competence behind us.</p>
+    <p>The model is simple and powerful. We build once, deploy repeatedly. Systems that scale. Revenue that compounds. MOKSHA is not just a business. It is the engine of our independence.</p>
+  </div>
+
+  <div class="horizon-block moksha">
+    <p>If three guys painting for residential clients can generate $300K — what can four guys building scalable automation solutions for commercial and corporate clients generate? 3X that? 7 figures by 2028? Let's build toward it and find out. We don't have a ceiling yet. That's the point.</p>
+  </div>
+
+  <div class="milestones-title" style="margin-top:1.5rem;">Milestones</div>
+  <div class="milestone-list">
+    <div class="milestone"><div class="milestone-dot moksha"></div><div class="milestone-text"><strong>March–May 2026</strong> — Automate our own businesses first: FIDELIO, OSTÉOPEINTURE, RSV. Liberate our own energy before we liberate others.</div></div>
+    <div class="milestone"><div class="milestone-dot moksha"></div><div class="milestone-text"><strong>April/May 2026</strong> — ORIGYN audit and implementation. Headquarters established (Rob + Loric shared workspace).</div></div>
+    <div class="milestone"><div class="milestone-dot moksha"></div><div class="milestone-text"><strong>May–July 2026</strong> — EATLOVE audit and implementation.</div></div>
+    <div class="milestone"><div class="milestone-dot moksha"></div><div class="milestone-text"><strong>July/August 2026</strong> — 7 companies automated. Begin turning outward.</div></div>
+    <div class="milestone"><div class="milestone-dot moksha"></div><div class="milestone-text"><strong>Fall 2026</strong> — Landing page live, outreach begins, packages and audits offered publicly.</div></div>
+    <div class="milestone"><div class="milestone-dot moksha"></div><div class="milestone-text"><strong>End of 2026</strong> — 2 real paying external clients.</div></div>
+    <div class="milestone"><div class="milestone-dot moksha"></div><div class="milestone-text"><strong>2027</strong> — 10 clients over the year. Location-independent revenue. 7-figure trajectory.</div></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FIDELIO -->
+<!-- ============================================================ -->
+<section class="section" id="fidelio">
+  <div class="proj-vision fidelio">
+    <p>FIDELIO and LXR are two faces of the same production capacity. Together they are the training ground — the place where we build the technical skills, the professional discipline, and the collaborative muscle that LIONHEART will eventually demand of us.</p>
+    <p>The goal is not perfection. It is consistency, efficiency, and progressive elevation. We show up, we deliver, we get better every time.</p>
+    <p>LXR's network is under-leveraged. The more we automate, the more we free ourselves from what bogs us down — and the more we can show up together, at full capacity, for higher-budget work.</p>
+    <p>The vision is a unified production team — not separate entities pulling in different directions, but four people who move as one. We can do much more, much better, collectively.</p>
+  </div>
+
+  <div class="milestones-title">Milestones</div>
+  <div class="milestone-list">
+    <div class="milestone"><div class="milestone-dot fidelio"></div><div class="milestone-text"><strong>April 5</strong> — fidelio weddings landing page live. Owner: Graeme.</div></div>
+    <div class="milestone"><div class="milestone-dot fidelio"></div><div class="milestone-text"><strong>April 20</strong> — FIDELIO Productions landing page live. Owner: Graeme.</div></div>
+    <div class="milestone"><div class="milestone-dot fidelio"></div><div class="milestone-text"><strong>April onward</strong> — Weddings outreach: shorts, Facebook posts, IG page, highlight reel. Outreach = ASAP.</div></div>
+    <div class="milestone"><div class="milestone-dot fidelio"></div><div class="milestone-text"><strong>2026</strong> — 3 weddings delivered. 2 collective production clients under LXR or FIDELIO.</div></div>
+    <div class="milestone"><div class="milestone-dot fidelio"></div><div class="milestone-text"><strong>Post-summer 2026</strong> — Refresh portfolio, attend one expo, plant seeds for 2027 wedding season.</div></div>
+    <div class="milestone"><div class="milestone-dot fidelio"></div><div class="milestone-text"><strong>2027</strong> — 8–12 weddings. 5–10 collective production clients. Full team operating as one unit.</div></div>
+    <div class="milestone"><div class="milestone-dot fidelio"></div><div class="milestone-text"><strong>dr. alexandra</strong> — Weekly YouTube publishing stable, post-production automated, channel growing as Quebec MSK reference.</div></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- LXR -->
+<!-- ============================================================ -->
+<section class="section" id="lxr">
+  <div class="proj-vision lxr">
+    <p>LXR and FIDELIO are two faces of the same production capacity. LXR carries a stronger industry network and is already generating serious client demand. The more the collective comes together — automating what bogs us down, building shared systems, operating as a unit — the more we can absorb that demand and deliver at the level it deserves.</p>
+    <p>Separate, we are limited. Together, Rob's creative direction and industry connections combined with the FIDELIO workforce is a different animal entirely. Higher-budget work. More serious clients. A reputation that compounds.</p>
+    <p>The objective: show up as professionals. Elevate the quality. Attract clients who deserve our level — and deliver beyond what they expected.</p>
+  </div>
+
+  <div class="milestones-title">Milestones</div>
+  <div class="milestone-list">
+    <div class="milestone"><div class="milestone-dot lxr"></div><div class="milestone-text"><strong>March (now)</strong> — Clear immediate backlog: Paul Siounis 1, Giulia & Denver, Mila socials, FOGG AI, ATP.</div></div>
+    <div class="milestone"><div class="milestone-dot lxr"></div><div class="milestone-text"><strong>April onward</strong> — Mila podcast recurring production stable. JA Quebec delivered. Network fully activated.</div></div>
+    <div class="milestone"><div class="milestone-dot lxr"></div><div class="milestone-text"><strong>Summer 2026</strong> — Full swing with collective support. Higher-budget projects targeted. Lubo and Graeme available as FIDELIO automates.</div></div>
+    <div class="milestone"><div class="milestone-dot lxr"></div><div class="milestone-text"><strong>2026</strong> — 2 collective clients under LXR or FIDELIO banner. Reputation building.</div></div>
+    <div class="milestone"><div class="milestone-dot lxr"></div><div class="milestone-text"><strong>2027</strong> — 5–10 collective production clients. LXR network fully absorbed into team capacity.</div></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PAINTING -->
+<!-- ============================================================ -->
+<section class="section" id="painting">
+  <div class="proj-vision painting">
+    <p>OSTÉOPEINTURE is the engine. It funds everything — the collective, the projects, the freedom we are building toward. We respect it for that. We show up to it the same way we show up to everything: with full professionalism, hunger, and pride in the work.</p>
+    <p>But we are not building a painting company. We are using it strategically — to generate maximum revenue with minimum friction, so the team's best energy flows toward what we are actually building.</p>
+    <p>The standard: own our value. Charge what we are worth. Nothing under $2K unless trivial. Aim for big contracts. Serious clients. Work that respects our level.</p>
+    <p>We are not just painters. We are builders using every tool available — including the brush.</p>
+  </div>
+
+  <div class="milestones-title">Milestones</div>
+  <div class="milestone-list">
+    <div class="milestone"><div class="milestone-dot painting"></div><div class="milestone-text"><strong>End of March</strong> — Hiring ad live on Indeed (link to MOKSHA-built intake form). Touch base with all interior potentials: ELM, LASALLE, STE-ELIZABETH.</div></div>
+    <div class="milestone"><div class="milestone-dot painting"></div><div class="milestone-text"><strong>First week of April</strong> — Flyering resumes. Facebook ad live mid-April. Hire 2 workers: 1 experienced painter + 1 carpenter.</div></div>
+    <div class="milestone"><div class="milestone-dot painting"></div><div class="milestone-text"><strong>April–May</strong> — Exterior leads gauged, estimates scheduled (1/week each), full summer schedule built.</div></div>
+    <div class="milestone"><div class="milestone-dot painting"></div><div class="milestone-text"><strong>Summer</strong> — Peak revenue. Big contracts only. 4 days/week per person. Flex day for MOKSHA (Loric) and weddings (Graeme, Lubo) when booked.</div></div>
+    <div class="milestone"><div class="milestone-dot painting"></div><div class="milestone-text"><strong>July</strong> — Begin planning October through January. No more empty winters.</div></div>
+    <div class="milestone"><div class="milestone-dot painting"></div><div class="milestone-text"><strong>October–November</strong> — Wrap strong. Revenue tallied. Review. Prepare for low season.</div></div>
+    <div class="milestone"><div class="milestone-dot painting"></div><div class="milestone-text"><strong>December–February</strong> — Low season = high leverage. MOKSHA and LIONHEART take over.</div></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PHASES -->
+<!-- ============================================================ -->
+<section class="section" id="phases">
+
+  <div class="phase-block ph1">
+    <div class="phase-header">
+      <span class="phase-badge">MAR — MAY 2026</span>
+      <span class="phase-name">Phase 1 — Prepare & Build</span>
+      <span class="phase-tagline">Set the foundation. Automate. Launch.</span>
+    </div>
+    <div class="phase-rows">
+      <div class="phase-row"><div class="phase-proj lh">LIONHEART</div><div class="phase-content">Weekly rhythm established and protected. Filming sessions every 2 weeks begin. Audio extraction from past recordings starts. Library building begins.</div></div>
+      <div class="phase-row"><div class="phase-proj moksha">MOKSHA</div><div class="phase-content">Automate FIDELIO and OSTÉOPEINTURE first (Mar–Apr). RSV Phase A live in 2 weeks. ORIGYN audit mid-April, implementation May. EATLOVE scoped. Headquarters established (Apr–May).</div></div>
+      <div class="phase-row"><div class="phase-proj fidelio">FIDELIO</div><div class="phase-content">fidelio weddings landing page live April 5. FIDELIO Productions landing page live April 20. dr. alexandra: 6-video backlog complete, weekly YouTube publishing launches. Weddings outreach begins immediately.</div></div>
+      <div class="phase-row"><div class="phase-proj lxr">LXR</div><div class="phase-content">Rob clears immediate client backlog (14 days). Mila podcast recurring production stable. JA Quebec delivered. Network activation begins.</div></div>
+      <div class="phase-row"><div class="phase-proj painting">PAINTING</div><div class="phase-content">Hiring ad live, 2 workers recruited. Interior clients confirmed (March). Flyering and Facebook ad live (April). Exterior estimates begin. Summer schedule built. Finance and taxes done.</div></div>
+    </div>
+  </div>
+
+  <div class="phase-block ph2">
+    <div class="phase-header">
+      <span class="phase-badge">JUN — SEPT 2026</span>
+      <span class="phase-name">Phase 2 — Full Production</span>
+      <span class="phase-tagline">Execute at full capacity. Deliver. Earn.</span>
+    </div>
+    <div class="phase-rows">
+      <div class="phase-row"><div class="phase-proj lh">LIONHEART</div><div class="phase-content">Bi-weekly filming sessions with the Boss. Sound library growing. First social media clips released. Power Weekend with the Boss in Montreal (late summer). Begin preparing Mexico retreat.</div></div>
+      <div class="phase-row"><div class="phase-proj moksha">MOKSHA</div><div class="phase-content">EATLOVE implementation complete (July). 7 companies automated by August. Turn outward — landing page, outreach, packages, audits live. First external client conversations begin.</div></div>
+      <div class="phase-row"><div class="phase-proj fidelio">FIDELIO</div><div class="phase-content">dr. alexandra full automated post-production pipeline running. Weekly YouTube stable and growing. 3 weddings filmed and delivered. Lubo and Graeme supporting LXR as capacity frees up.</div></div>
+      <div class="phase-row"><div class="phase-proj lxr">LXR</div><div class="phase-content">Full swing with collective support. Higher-budget projects targeted. Reputation building. Network fully activated.</div></div>
+      <div class="phase-row"><div class="phase-proj painting">PAINTING</div><div class="phase-content">Peak summer season. 2 hired workers on crew. Automations handling intake and quoting. Loric managing more than painting. Big contracts only. Revenue maximized.</div></div>
+    </div>
+  </div>
+
+  <div class="phase-block ph3">
+    <div class="phase-header">
+      <span class="phase-badge">OCT — NOV 2026</span>
+      <span class="phase-name">Phase 3 — Reap & Consolidate</span>
+      <span class="phase-tagline">Harvest results. Review. Plant seeds.</span>
+    </div>
+    <div class="phase-rows">
+      <div class="phase-row"><div class="phase-proj lh">LIONHEART</div><div class="phase-content">Substantial library built. Full review of what exists. Map what is needed for Mexico retreat. Begin preparing the vision document for the next phase.</div></div>
+      <div class="phase-row"><div class="phase-proj moksha">MOKSHA</div><div class="phase-content">2 real paying external clients active. All 7 companies automated. Revenue model validated. Scale plan for 2027 locked.</div></div>
+      <div class="phase-row"><div class="phase-proj fidelio">FIDELIO</div><div class="phase-content">dr. alexandra channel growing. Wedding portfolio refreshed. Fall outreach for 2027 season begins. Attend one wedding expo. New reel created.</div></div>
+      <div class="phase-row"><div class="phase-proj lxr">LXR</div><div class="phase-content">Season results reviewed. Best clients identified for 2027. Network relationships deepened. Collective production capacity assessed.</div></div>
+      <div class="phase-row"><div class="phase-proj painting">PAINTING</div><div class="phase-content">Season wrapped. Revenue tallied. 2027 strategy drafted. Lead generation continues — no empty winter.</div></div>
+    </div>
+  </div>
+
+  <div class="phase-block ph4">
+    <div class="phase-header">
+      <span class="phase-badge">DEC 2026 — FEB 2027</span>
+      <span class="phase-name">Phase 4 — Regroup & Relaunch</span>
+      <span class="phase-tagline">Mexico. Recharge. Begin the next phase.</span>
+    </div>
+    <div class="phase-rows">
+      <div class="phase-row"><div class="phase-proj lh">RETREAT</div><div class="phase-content">December 2026: 2–3 week production retreat in Mexico with the Boss. Full collective. Film, create, plan, bond. The symbolic and practical beginning of LIONHEART as a full-time pursuit.</div></div>
+      <div class="phase-row"><div class="phase-proj moksha">JAN–FEB</div><div class="phase-content">Return to Montreal with renewed clarity. Low painting season = high leverage. Double down on MOKSHA client scaling and LIONHEART. Set 2027 targets across all projects.</div></div>
+      <div class="phase-row"><div class="phase-proj all">MARCH 2027</div><div class="phase-content">New phase begins. 10 MOKSHA clients target. 8–12 weddings. Collective production team at full capacity. LIONHEART growing. Painting strategic — maximum revenue, minimum friction.</div></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- TIMELINE -->
+<!-- ============================================================ -->
+<section class="section" id="timeline">
+  <div class="tl-note">Macro view — March 2026 to December 2026. Each color = one project. Shade intensity = phase intensity.</div>
+  <div class="timeline-wrap">
+    <table class="timeline">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Mar</th><th>Apr</th><th>May</th>
+          <th>Jun</th><th>Jul</th><th>Aug</th><th>Sep</th>
+          <th>Oct</th><th>Nov</th><th>Dec</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>LIONHEART</td>
+          <td class="tl-lh-1">Rhythm est.</td>
+          <td class="tl-lh-1">Library building</td>
+          <td class="tl-lh-1">Library building</td>
+          <td class="tl-lh-2">Filming + editing</td>
+          <td class="tl-lh-2">Filming + editing</td>
+          <td class="tl-lh-2">Power Weekend</td>
+          <td class="tl-lh-2">Filming + editing</td>
+          <td class="tl-lh-3">Full review</td>
+          <td class="tl-lh-3">Prep retreat</td>
+          <td class="tl-lh-4">MEXICO 🦁</td>
+        </tr>
+        <tr>
+          <td>MOKSHA</td>
+          <td class="tl-mk-1">RSV live</td>
+          <td class="tl-mk-1">ORIGYN audit</td>
+          <td class="tl-mk-1">ORIGYN impl. + EATLOVE</td>
+          <td class="tl-mk-2">EATLOVE impl.</td>
+          <td class="tl-mk-2">7 companies automated</td>
+          <td class="tl-mk-2">Turn outward</td>
+          <td class="tl-mk-2">Scale clients</td>
+          <td class="tl-mk-3">2 ext. clients</td>
+          <td class="tl-mk-3">Review + lock 2027</td>
+          <td class="tl-mk-4">Retreat</td>
+        </tr>
+        <tr>
+          <td>FIDELIO</td>
+          <td class="tl-fd-1">Pages + filming sprint</td>
+          <td class="tl-fd-1">YouTube launches</td>
+          <td class="tl-fd-1">Post-prod pipeline</td>
+          <td class="tl-fd-2">Full production</td>
+          <td class="tl-fd-2">Full production</td>
+          <td class="tl-fd-2">Full production</td>
+          <td class="tl-fd-2">Full production</td>
+          <td class="tl-fd-3">Review + refresh</td>
+          <td class="tl-fd-3">New season prep</td>
+          <td class="tl-fd-4">Retreat</td>
+        </tr>
+        <tr>
+          <td>LXR</td>
+          <td class="tl-lx-1">Clear backlog</td>
+          <td class="tl-lx-1">Stable ops</td>
+          <td class="tl-lx-1">Growing</td>
+          <td class="tl-lx-2">Full swing</td>
+          <td class="tl-lx-2">Full swing</td>
+          <td class="tl-lx-2">Full swing</td>
+          <td class="tl-lx-2">Full swing</td>
+          <td class="tl-lx-3">Reap</td>
+          <td class="tl-lx-3">Reap</td>
+          <td class="tl-lx-4">Retreat</td>
+        </tr>
+        <tr>
+          <td>PAINTING</td>
+          <td class="tl-pt-1">Admin + hiring</td>
+          <td class="tl-pt-1">Interior jobs</td>
+          <td class="tl-pt-2">Exterior begins</td>
+          <td class="tl-pt-3">Peak season</td>
+          <td class="tl-pt-3">Peak season</td>
+          <td class="tl-pt-3">Peak season</td>
+          <td class="tl-pt-2">Winding down</td>
+          <td class="tl-pt-1">Review</td>
+          <td class="tl-pt-4">Off-season</td>
+          <td class="tl-pt-4">Retreat</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-title">LIONHEART PRODUCTIONS — Loric · Rob · Graeme · Lubo</div>
+  <div class="footer-meta">Montreal · 2026</div>
+</footer>
+
+<script>
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
