@@ -8,105 +8,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #111110;
-    --bg2: #1a1a18;
-    --bg3: #222220;
-    --border: rgba(255,255,255,0.08);
-    --text: #e8e6e0;
-    --muted: #888880;
-    --faint: #444440;
-
-    --lh: #7B6FD4;
-    --lh-light: #EEEDFE;
-    --lh-mid: #534AB7;
-    --lh-dark: #2A2460;
-
-    --moksha: #3B8FD4;
-    --moksha-light: #E6F1FB;
-    --moksha-mid: #185FA5;
-    --moksha-dark: #0A2E52;
-
-    --fidelio: #2BAB7A;
-    --fidelio-light: #E1F5EE;
-    --fidelio-mid: #0F6E56;
-    --fidelio-dark: #063D30;
-
-    --lxr: #D4603B;
-    --lxr-light: #FAECE7;
-    --lxr-mid: #993C1D;
-    --lxr-dark: #4A1B0C;
-
-    --painting: #D4A23B;
-    --painting-light: #FAEEDA;
-    --painting-mid: #854F0B;
-    --painting-dark: #412402;
+    --bg: #111110; --bg2: #1a1a18; --bg3: #222220;
+    --border: rgba(255,255,255,0.08); --text: #e8e6e0; --muted: #888880; --faint: #444440;
+    --lh: #7B6FD4; --moksha: #3B8FD4; --fidelio: #2BAB7A; --lxr: #D4603B; --painting: #D4A23B;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.6;
-    min-height: 100vh;
-  }
-
-  /* HEADER */
-  .site-header {
-    padding: 2.5rem 2rem 1.5rem;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .site-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    letter-spacing: 0.05em;
-    color: var(--text);
-    line-height: 1;
-  }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.6; min-height: 100vh; }
+  .site-header { padding: 2.5rem 2rem 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .site-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: 0.05em; color: var(--text); line-height: 1; }
   .site-title span { color: var(--lh); }
-  .site-meta {
-    font-size: 0.75rem;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-align: right;
-  }
-
-  /* TABS */
-  .tabs-wrap {
-    padding: 1rem 2rem 0;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    gap: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
+  .site-meta { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; text-align: right; }
+  .tabs-wrap { padding: 1rem 2rem 0; border-bottom: 1px solid var(--border); display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
   .tabs-wrap::-webkit-scrollbar { display: none; }
-
-  .tab {
-    padding: 0.65rem 1.1rem;
-    font-size: 0.78rem;
-    font-weight: 400;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--muted);
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    white-space: nowrap;
-    transition: color 0.15s, border-color 0.15s;
-    background: none;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    font-family: 'DM Sans', sans-serif;
-  }
+  .tab { padding: 0.65rem 1.1rem; font-size: 0.78rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.15s, border-color 0.15s; background: none; border-top: none; border-left: none; border-right: none; font-family: 'DM Sans', sans-serif; }
   .tab:hover { color: var(--text); }
   .tab.active { color: var(--text); border-bottom-color: var(--text); }
   .tab[data-color="lh"].active { color: var(--lh); border-bottom-color: var(--lh); }
@@ -114,276 +28,129 @@
   .tab[data-color="fidelio"].active { color: var(--fidelio); border-bottom-color: var(--fidelio); }
   .tab[data-color="lxr"].active { color: var(--lxr); border-bottom-color: var(--lxr); }
   .tab[data-color="painting"].active { color: var(--painting); border-bottom-color: var(--painting); }
-
-  /* CONTENT */
   .section { display: none; padding: 2.5rem 2rem; max-width: 1100px; }
-  .section.active { display: block; }
-
-  /* VISION TAB */
-  .vision-quote {
-    border-left: 3px solid var(--lh);
-    padding: 1.5rem 2rem;
-    margin-bottom: 2.5rem;
-    background: var(--bg2);
-    border-radius: 0 12px 12px 0;
-  }
-  .vision-quote p {
-    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-    font-weight: 400;
-    color: var(--text);
-    line-height: 1.65;
-  }
-
-  .pillars {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 12px;
-    margin-bottom: 2.5rem;
-  }
-  .pillar {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.25rem 1.5rem;
-    transition: border-color 0.2s;
-  }
+  .section.active { display: block; animation: fadeIn 0.2s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  .vision-quote { border-left: 3px solid var(--lh); padding: 1.5rem 2rem; margin-bottom: 2.5rem; background: var(--bg2); border-radius: 0 12px 12px 0; }
+  .vision-quote p { font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-weight: 400; color: var(--text); line-height: 1.65; }
+  .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 2.5rem; }
+  .pillar { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; transition: border-color 0.2s; }
   .pillar:hover { border-color: rgba(255,255,255,0.15); }
   .pillar-icon { font-size: 1.3rem; margin-bottom: 0.6rem; }
   .pillar-title { font-size: 0.9rem; font-weight: 500; color: var(--text); margin-bottom: 0.4rem; }
   .pillar-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
-
-  .standard-block {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.25rem 1.5rem;
-  }
+  .standard-block { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; }
   .standard-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
   .standard-text { font-size: 0.9rem; color: var(--text); line-height: 1.6; }
-
-  /* PROJECT TABS */
-  .proj-vision {
-    border-radius: 12px;
-    padding: 1.5rem 2rem;
-    margin-bottom: 2rem;
-    border-left: 3px solid;
-  }
-  .proj-vision p {
-    font-size: 1rem;
-    color: var(--text);
-    line-height: 1.75;
-    margin-bottom: 0.75rem;
-  }
+  .proj-vision { border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 2rem; border-left: 3px solid; }
+  .proj-vision p { font-size: 1rem; color: var(--text); line-height: 1.75; margin-bottom: 0.75rem; }
   .proj-vision p:last-child { margin-bottom: 0; }
-
   .proj-vision.lh { border-color: var(--lh); background: rgba(123,111,212,0.07); }
   .proj-vision.moksha { border-color: var(--moksha); background: rgba(59,143,212,0.07); }
   .proj-vision.fidelio { border-color: var(--fidelio); background: rgba(43,171,122,0.07); }
   .proj-vision.lxr { border-color: var(--lxr); background: rgba(212,96,59,0.07); }
   .proj-vision.painting { border-color: var(--painting); background: rgba(212,162,59,0.07); }
-
-  .milestones-title {
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 1rem;
-    margin-top: 0.5rem;
-  }
+  .milestones-title { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; margin-top: 0.5rem; }
   .milestone-list { display: flex; flex-direction: column; gap: 8px; }
-  .milestone {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    padding: 0.75rem 1rem;
-    background: var(--bg2);
-    border-radius: 8px;
-    border: 1px solid var(--border);
-  }
-  .milestone-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    margin-top: 7px;
-    flex-shrink: 0;
-  }
-  .milestone-dot.lh { background: var(--lh); }
-  .milestone-dot.moksha { background: var(--moksha); }
-  .milestone-dot.fidelio { background: var(--fidelio); }
-  .milestone-dot.lxr { background: var(--lxr); }
-  .milestone-dot.painting { background: var(--painting); }
-
+  .milestone { display: flex; gap: 12px; align-items: flex-start; padding: 0.75rem 1rem; background: var(--bg2); border-radius: 8px; border: 1px solid var(--border); }
+  .milestone-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+  .milestone-dot.lh { background: var(--lh); } .milestone-dot.moksha { background: var(--moksha); } .milestone-dot.fidelio { background: var(--fidelio); } .milestone-dot.lxr { background: var(--lxr); } .milestone-dot.painting { background: var(--painting); }
   .milestone-text { font-size: 0.85rem; color: var(--text); line-height: 1.55; }
   .milestone-text strong { font-weight: 500; color: var(--muted); }
-
-  .horizon-block {
-    margin-top: 1.5rem;
-    border-radius: 12px;
-    padding: 1.25rem 1.5rem;
-    border: 1px solid;
-  }
-  .horizon-block.lh { border-color: rgba(123,111,212,0.3); background: rgba(123,111,212,0.07); }
+  .horizon-block { margin-top: 1.5rem; border-radius: 12px; padding: 1.25rem 1.5rem; border: 1px solid; }
   .horizon-block.moksha { border-color: rgba(59,143,212,0.3); background: rgba(59,143,212,0.07); }
   .horizon-block p { font-size: 0.9rem; color: var(--text); line-height: 1.65; }
-
-  /* PHASES TAB */
+  .op-divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+  .op-section-title { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.25rem; margin-top: 2rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+  .subsection { margin-bottom: 2rem; }
+  .subsection-title { font-size: 0.9rem; font-weight: 500; color: var(--text); margin-bottom: 1rem; margin-top: 2rem; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .dot-fidelio { background: var(--fidelio); } .dot-moksha { background: var(--moksha); }
+  .tier-block { margin-bottom: 1.25rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .tier-header { padding: 8px 16px; display: flex; align-items: center; gap: 10px; }
+  .tier-ultimate .tier-header { background: rgba(194,57,43,0.15); }
+  .tier-high .tier-header { background: rgba(212,162,59,0.12); }
+  .tier-med .tier-header { background: rgba(59,143,212,0.1); }
+  .tier-low .tier-header { background: rgba(100,100,100,0.1); }
+  .tier-badge { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; }
+  .tier-ultimate .tier-badge { background: rgba(194,57,43,0.25); color: #e87070; }
+  .tier-high .tier-badge { background: rgba(212,162,59,0.2); color: var(--painting); }
+  .tier-med .tier-badge { background: rgba(59,143,212,0.2); color: var(--moksha); }
+  .tier-low .tier-badge { background: rgba(100,100,100,0.2); color: var(--muted); }
+  .tier-desc { font-size: 0.75rem; color: var(--muted); }
+  .build-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; padding: 12px; }
+  .build-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; }
+  .build-id { font-size: 0.65rem; letter-spacing: 0.08em; color: var(--faint); margin-bottom: 3px; }
+  .build-name { font-size: 0.82rem; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+  .build-meta { display: flex; gap: 6px; flex-wrap: wrap; }
+  .build-tag { font-size: 0.65rem; padding: 2px 7px; border-radius: 20px; background: var(--bg3); color: var(--muted); }
+  .build-tag.moksha { background: rgba(59,143,212,0.12); color: #88bce8; }
+  .build-tag.fidelio { background: rgba(43,171,122,0.12); color: #7fcfb0; }
+  .build-tag.painting { background: rgba(212,162,59,0.12); color: #e0c080; }
+  .build-tag.rsv { background: rgba(123,111,212,0.12); color: #b8b0f0; }
+  .build-tag.urgent { background: rgba(194,57,43,0.15); color: #e87070; }
+  .data-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin-bottom: 1rem; }
+  .data-table th { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  .data-table td { padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text); vertical-align: top; line-height: 1.45; }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: var(--bg2); }
+  .sb { display: inline-block; font-size: 0.65rem; padding: 2px 7px; border-radius: 20px; white-space: nowrap; }
+  .sb-done { background: rgba(43,171,122,0.15); color: #7fcfb0; }
+  .sb-prog { background: rgba(212,162,59,0.15); color: #e0c080; }
+  .sb-pend { background: rgba(100,100,100,0.15); color: var(--muted); }
+  .sb-urg { background: rgba(194,57,43,0.15); color: #e87070; }
+  .task-list { display: flex; flex-direction: column; gap: 6px; }
+  .task-item { display: flex; gap: 10px; align-items: flex-start; padding: 8px 12px; background: var(--bg2); border-radius: 8px; border: 1px solid var(--border); }
+  .task-owner { font-size: 0.68rem; font-weight: 500; padding: 2px 7px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 1px; }
+  .own-l { background: rgba(123,111,212,0.15); color: #b8b0f0; }
+  .own-g { background: rgba(43,171,122,0.15); color: #7fcfb0; }
+  .own-lu { background: rgba(212,162,59,0.15); color: #e0c080; }
+  .own-r { background: rgba(212,96,59,0.15); color: #e8a080; }
+  .own-a { background: rgba(100,100,100,0.15); color: var(--muted); }
+  .task-content { flex: 1; }
+  .task-name { font-size: 0.82rem; color: var(--text); line-height: 1.4; }
+  .task-dl { font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
+  .ext-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--fidelio); text-decoration: none; padding: 8px 14px; background: rgba(43,171,122,0.08); border: 1px solid rgba(43,171,122,0.2); border-radius: 8px; transition: background 0.15s; }
+  .ext-link:hover { background: rgba(43,171,122,0.15); }
+  .filming-grid { display: grid; grid-template-columns: 140px 1fr; }
+  .filming-date { font-size: 0.78rem; font-weight: 500; color: var(--fidelio); padding: 7px 12px 7px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .filming-act { font-size: 0.78rem; color: var(--text); padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
   .phase-block { margin-bottom: 2rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-  .phase-header {
-    padding: 1rem 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .phase-badge {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.07em;
-    padding: 4px 12px;
-    border-radius: 20px;
-    white-space: nowrap;
-  }
+  .phase-header { padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .phase-badge { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.07em; padding: 4px 12px; border-radius: 20px; white-space: nowrap; }
   .phase-name { font-size: 1rem; font-weight: 500; color: var(--text); }
   .phase-tagline { font-size: 0.8rem; color: var(--muted); margin-left: auto; }
-
-  .ph1 .phase-header { background: rgba(43,171,122,0.12); }
-  .ph1 .phase-badge { background: rgba(43,171,122,0.2); color: var(--fidelio); }
-  .ph2 .phase-header { background: rgba(212,162,59,0.12); }
-  .ph2 .phase-badge { background: rgba(212,162,59,0.2); color: var(--painting); }
-  .ph3 .phase-header { background: rgba(212,96,59,0.12); }
-  .ph3 .phase-badge { background: rgba(212,96,59,0.2); color: var(--lxr); }
-  .ph4 .phase-header { background: rgba(123,111,212,0.12); }
-  .ph4 .phase-badge { background: rgba(123,111,212,0.2); color: var(--lh); }
-
+  .ph1 .phase-header { background: rgba(43,171,122,0.12); } .ph1 .phase-badge { background: rgba(43,171,122,0.2); color: var(--fidelio); }
+  .ph2 .phase-header { background: rgba(212,162,59,0.12); } .ph2 .phase-badge { background: rgba(212,162,59,0.2); color: var(--painting); }
+  .ph3 .phase-header { background: rgba(212,96,59,0.12); } .ph3 .phase-badge { background: rgba(212,96,59,0.2); color: var(--lxr); }
+  .ph4 .phase-header { background: rgba(123,111,212,0.12); } .ph4 .phase-badge { background: rgba(123,111,212,0.2); color: var(--lh); }
   .phase-rows { padding: 0.5rem 0; }
-  .phase-row {
-    display: grid;
-    grid-template-columns: 110px 1fr;
-    gap: 0;
-    border-top: 1px solid var(--border);
-    padding: 0.85rem 1.5rem;
-    align-items: start;
-  }
-  .phase-proj {
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding-top: 2px;
-  }
-  .phase-proj.lh { color: var(--lh); }
-  .phase-proj.moksha { color: var(--moksha); }
-  .phase-proj.fidelio { color: var(--fidelio); }
-  .phase-proj.lxr { color: var(--lxr); }
-  .phase-proj.painting { color: var(--painting); }
-  .phase-proj.all { color: var(--muted); }
-
+  .phase-row { display: grid; grid-template-columns: 110px 1fr; border-top: 1px solid var(--border); padding: 0.85rem 1.5rem; align-items: start; }
+  .phase-proj { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding-top: 2px; }
+  .phase-proj.lh { color: var(--lh); } .phase-proj.moksha { color: var(--moksha); } .phase-proj.fidelio { color: var(--fidelio); } .phase-proj.lxr { color: var(--lxr); } .phase-proj.painting { color: var(--painting); } .phase-proj.all { color: var(--muted); }
   .phase-content { font-size: 0.85rem; color: var(--text); line-height: 1.6; }
-
-  /* TIMELINE TAB */
   .timeline-wrap { overflow-x: auto; padding-bottom: 1rem; }
   .tl-note { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.25rem; }
-
-  table.timeline {
-    border-collapse: separate;
-    border-spacing: 4px;
-    min-width: 900px;
-    width: 100%;
-  }
-  table.timeline th {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-align: center;
-    padding: 6px 4px;
-  }
+  table.timeline { border-collapse: separate; border-spacing: 4px; min-width: 900px; width: 100%; }
+  table.timeline th { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); text-align: center; padding: 6px 4px; }
   table.timeline th:first-child { text-align: left; width: 90px; }
-  table.timeline td {
-    border-radius: 8px;
-    padding: 8px 10px;
-    font-size: 0.75rem;
-    line-height: 1.35;
-    vertical-align: top;
-    text-align: left;
-  }
-  table.timeline td:first-child {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: var(--muted);
-    background: transparent;
-    padding-left: 0;
-    vertical-align: middle;
-  }
-
-  /* Project colors with saturation levels for phases */
-  /* LIONHEART */
-  .tl-lh-1 { background: rgba(123,111,212,0.15); color: #b8b0f0; }
-  .tl-lh-2 { background: rgba(123,111,212,0.28); color: #c8c2f8; }
-  .tl-lh-3 { background: rgba(123,111,212,0.22); color: #b8b0f0; }
-  .tl-lh-4 { background: rgba(123,111,212,0.38); color: #d4d0ff; }
-
-  /* MOKSHA */
-  .tl-mk-1 { background: rgba(59,143,212,0.15); color: #88bce8; }
-  .tl-mk-2 { background: rgba(59,143,212,0.28); color: #9ecaf0; }
-  .tl-mk-3 { background: rgba(59,143,212,0.22); color: #88bce8; }
-  .tl-mk-4 { background: rgba(59,143,212,0.38); color: #b8d8f8; }
-
-  /* FIDELIO */
-  .tl-fd-1 { background: rgba(43,171,122,0.15); color: #7fcfb0; }
-  .tl-fd-2 { background: rgba(43,171,122,0.28); color: #8fddc0; }
-  .tl-fd-3 { background: rgba(43,171,122,0.22); color: #7fcfb0; }
-  .tl-fd-4 { background: rgba(43,171,122,0.38); color: #a0e8cc; }
-
-  /* LXR */
-  .tl-lx-1 { background: rgba(212,96,59,0.15); color: #e8a080; }
-  .tl-lx-2 { background: rgba(212,96,59,0.28); color: #f0b090; }
-  .tl-lx-3 { background: rgba(212,96,59,0.22); color: #e8a080; }
-  .tl-lx-4 { background: rgba(212,96,59,0.12); color: #d08868; }
-
-  /* PAINTING */
-  .tl-pt-1 { background: rgba(212,162,59,0.15); color: #e0c080; }
-  .tl-pt-2 { background: rgba(212,162,59,0.28); color: #ecd090; }
-  .tl-pt-3 { background: rgba(212,162,59,0.38); color: #f8e0a0; }
-  .tl-pt-4 { background: rgba(212,162,59,0.12); color: #c8a860; }
-
-  /* FOOTER */
-  footer {
-    margin-top: 4rem;
-    padding: 2rem;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  footer .footer-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 0.08em;
-    color: var(--faint);
-  }
+  table.timeline td { border-radius: 8px; padding: 8px 10px; font-size: 0.75rem; line-height: 1.35; vertical-align: top; }
+  table.timeline td:first-child { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); background: transparent; padding-left: 0; vertical-align: middle; }
+  .tl-lh-1{background:rgba(123,111,212,0.15);color:#b8b0f0} .tl-lh-2{background:rgba(123,111,212,0.28);color:#c8c2f8} .tl-lh-3{background:rgba(123,111,212,0.22);color:#b8b0f0} .tl-lh-4{background:rgba(123,111,212,0.38);color:#d4d0ff}
+  .tl-mk-1{background:rgba(59,143,212,0.15);color:#88bce8} .tl-mk-2{background:rgba(59,143,212,0.28);color:#9ecaf0} .tl-mk-3{background:rgba(59,143,212,0.22);color:#88bce8} .tl-mk-4{background:rgba(59,143,212,0.38);color:#b8d8f8}
+  .tl-fd-1{background:rgba(43,171,122,0.15);color:#7fcfb0} .tl-fd-2{background:rgba(43,171,122,0.28);color:#8fddc0} .tl-fd-3{background:rgba(43,171,122,0.22);color:#7fcfb0} .tl-fd-4{background:rgba(43,171,122,0.38);color:#a0e8cc}
+  .tl-lx-1{background:rgba(212,96,59,0.15);color:#e8a080} .tl-lx-2{background:rgba(212,96,59,0.28);color:#f0b090} .tl-lx-3{background:rgba(212,96,59,0.22);color:#e8a080} .tl-lx-4{background:rgba(212,96,59,0.12);color:#d08868}
+  .tl-pt-1{background:rgba(212,162,59,0.15);color:#e0c080} .tl-pt-2{background:rgba(212,162,59,0.28);color:#ecd090} .tl-pt-3{background:rgba(212,162,59,0.38);color:#f8e0a0} .tl-pt-4{background:rgba(212,162,59,0.12);color:#c8a860}
+  footer { margin-top: 4rem; padding: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  footer .footer-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.08em; color: var(--faint); }
   footer .footer-meta { font-size: 0.75rem; color: var(--faint); }
-
-  /* ANIMATIONS */
-  .section.active { animation: fadeIn 0.2s ease; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-
-  @media (max-width: 600px) {
-    .site-header, .tabs-wrap, .section { padding-left: 1rem; padding-right: 1rem; }
-    .phase-row { grid-template-columns: 80px 1fr; }
-    .phase-tagline { display: none; }
-  }
+  @media(max-width:600px){ .site-header,.tabs-wrap,.section{padding-left:1rem;padding-right:1rem} .phase-row{grid-template-columns:80px 1fr} .phase-tagline{display:none} .build-grid{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
 
 <header class="site-header">
-  <div class="site-title">LIONHEART <span>PRODUCTIONS</span></div>
+  <div class="site-title">LIONHEART <span>MASONIC BUILDERS</span></div>
   <div class="site-meta">Collective Vision & Plan<br>2026 — 2028</div>
 </header>
 
@@ -398,75 +165,52 @@
   <button class="tab" data-tab="timeline">Timeline</button>
 </nav>
 
-<!-- ============================================================ -->
 <!-- VISION -->
-<!-- ============================================================ -->
 <section class="section active" id="vision">
-  <div class="vision-quote">
-    <p>We are building a professional production collective capable of creating LIONHEART full-time — from anywhere in the world — within 18 to 30 months — before the end of 2028. Everything we do between now and then is deliberate preparation: building skills, automating operations, generating revenue, and growing individually and collectively into the team that project deserves.</p>
-  </div>
-
+  <div class="vision-quote"><p>We are building a professional production collective capable of creating LIONHEART full-time — from anywhere in the world — within 18 to 30 months — before the end of 2028. Everything we do between now and then is deliberate preparation: building skills, automating operations, generating revenue, and growing individually and collectively into the team that project deserves.</p></div>
   <div class="pillars">
-    <div class="pillar">
-      <div class="pillar-icon">⚙️</div>
-      <div class="pillar-title">Automate to liberate</div>
-      <div class="pillar-desc">MOKSHA removes the administrative weight from painting and production so the team's best hours go to creative and strategic work.</div>
-    </div>
-    <div class="pillar">
-      <div class="pillar-icon">🎬</div>
-      <div class="pillar-title">Produce to grow</div>
-      <div class="pillar-desc">FIDELIO and LXR are the training ground. Every client project sharpens the skills, systems, and professionalism LIONHEART will demand.</div>
-    </div>
-    <div class="pillar">
-      <div class="pillar-icon">🏗️</div>
-      <div class="pillar-title">Fund the vision</div>
-      <div class="pillar-desc">Painting generates the cash. MOKSHA builds scalable revenue. Together they fund the time and freedom the collective needs to grow.</div>
-    </div>
-    <div class="pillar">
-      <div class="pillar-icon">🦁</div>
-      <div class="pillar-title">Protect LIONHEART</div>
-      <div class="pillar-desc">LIONHEART never goes to zero. Every week, regardless of external pressure, the collective gives it protected time. It is the north star.</div>
-    </div>
-    <div class="pillar">
-      <div class="pillar-icon">🌍</div>
-      <div class="pillar-title">Build for freedom</div>
-      <div class="pillar-desc">Geographic independence is the goal. No painting. No local ceiling. A team that can be transplanted anywhere and produce at full capacity.</div>
-    </div>
+    <div class="pillar"><div class="pillar-icon">⚙️</div><div class="pillar-title">Automate to liberate</div><div class="pillar-desc">MOKSHA removes the administrative weight from painting and production so the team's best hours go to creative and strategic work.</div></div>
+    <div class="pillar"><div class="pillar-icon">🎬</div><div class="pillar-title">Produce to grow</div><div class="pillar-desc">FIDELIO and LXR are the training ground. Every client project sharpens the skills, systems, and professionalism LIONHEART will demand.</div></div>
+    <div class="pillar"><div class="pillar-icon">🏗️</div><div class="pillar-title">Fund the vision</div><div class="pillar-desc">Painting generates the cash. MOKSHA builds scalable revenue. Together they fund the time and freedom the collective needs to grow.</div></div>
+    <div class="pillar"><div class="pillar-icon">🦁</div><div class="pillar-title">Protect LIONHEART</div><div class="pillar-desc">LIONHEART never goes to zero. Every week, regardless of external pressure, the collective gives it protected time. It is the north star.</div></div>
+    <div class="pillar"><div class="pillar-icon">🌍</div><div class="pillar-title">Build for freedom</div><div class="pillar-desc">Geographic independence is the goal. No painting. No local ceiling. A team that can be transplanted anywhere and produce at full capacity.</div></div>
   </div>
-
-  <div class="standard-block">
-    <div class="standard-label">The standard</div>
-    <div class="standard-text">20% effort for a consistent, solid 80% result — that is A+ in our book. We show up, we deliver, we get better every time. We own our value. We charge what we are worth. We attract clients who deserve our level.</div>
-  </div>
+  <div class="standard-block"><div class="standard-label">The standard</div><div class="standard-text">20% effort for a consistent, solid 80% result — that is A+ in our book. We show up, we deliver, we get better every time. We own our value. We charge what we are worth. We attract clients who deserve our level.</div></div>
 </section>
 
-<!-- ============================================================ -->
 <!-- LIONHEART -->
-<!-- ============================================================ -->
 <section class="section" id="lionheart">
   <div class="proj-vision lh">
-    <p>LIONHEART is the deepest knowledge we have access to — transmitted through men who came together like brothers to share what no one else can share.</p>
-    <p>Raw, real, unapologizing. A frequency that reconnects people to what they forgot lifetimes ago. In a world pushing men to the fringes, we have something unique to offer: a voice, a sound, a way of being that is irreplaceable. Not because we invented it — but because we were called to carry it.</p>
-    <p>LIONHEART doesn't chase an audience. It calls its people. And they come.</p>
-    <p>It has no fixed form yet. It will move through many projects, many mediums, many avatars. What doesn't change is the intent at its center — to transmit the purest sound we are capable of. To give back what sustained us. To make it accessible to those who are ready to receive it.</p>
-    <p>Everything else — FIDELIO, LXR, MOKSHA, the painting — is the training ground. Every client, every automation, every wedding filmed, every system built is sharpening us. Building the capacity, the discipline, the technical and creative strength to carry something this real without compromising it.</p>
-    <p>We measure success not by reach but by purity. The work is becoming ready.</p>
+    <p><strong>Where We Are Today</strong><br>We built our lives on a system that was never really ours — inherited from cities, families, and cultures that rewarded keeping your head down and being practical. We showed up, painted walls, filmed weddings, learned to offer a professional service. And it worked. But there's a split at the root of our lives that none of it resolved. The tiredness isn't from working hard. It's from working against yourself for too long. That kind of drain doesn't go away with rest.</p>
+    <p><strong>Why We're Stuck</strong><br>The old system runs deep. It's not just circumstances — it's a mindset. One that celebrates dependency and punishes drive, self-respect, and masculine integrity. So when a genuinely different possibility shows up, the conditioned mind doesn't open — it gets cautious. It asks if it's realistic. It defaults to what's safe. That's the stuck. Not lack of ability. But a deeply ingrained belief that chooses the comfort of a familiar cage over the responsibility of a free life — one built on your values, unapologetically, in full integrity, regardless of who approves.</p>
+    <p><strong>What We're Building Toward</strong><br>Lives where what we do, how we live, and who we are stop being three separate things we're constantly trying to balance. Where the work comes out of the life naturally, not in spite of it. This isn't abstract. We have a living reference point. The Boss built exactly this — not overnight, not without difficulty, but consistently and without compromise. He didn't adapt himself to fit the world. He built a world that fits him. And everything flows from that: the clarity, the output, the energy, the magnetism.</p>
+    <p><strong>The Mindset We Need To Let In</strong><br>Stop waiting to feel ready. Stop asking for permission from a world that will never give it. The shift isn't complicated but it is deep. It's the decision to take your own nature seriously — to stop treating your real self as a liability to be managed, and start treating it as the only genuine asset you have.</p>
+    <p>Our Teacher leads by example. He has already made that decision — fully, visibly, without apology. We see in him what it looks like to live in full integrity.</p>
+    <p>That's what LIONHEART represents. Not a brand. Not a content strategy. A current that exists beyond us, with a life of its own. We don't own it. We aspire to be worthy of it — to align with it, respect what we've been given, and dedicate ourselves to building the way of life that makes participation in it possible.</p>
+    <p>That commitment is the only foundation on which an aligned life can be built.</p>
   </div>
 
-  <div class="milestones-title">Milestones</div>
+  <div style="border-left:3px solid rgba(123,111,212,0.4);padding:1.25rem 1.5rem;background:rgba(123,111,212,0.05);border-radius:0 12px 12px 0;margin-bottom:2rem;">
+    <p style="font-size:0.72rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;">The core mental shift</p>
+    <p style="font-size:1rem;color:var(--text);line-height:1.75;margin-bottom:0.75rem;">Your life is the business. Not separate from it. When you train — that is the business. When you travel — that is content. When you gather — that is the magnet. There is zero separation.</p>
+    <p style="font-size:0.9rem;color:var(--muted);line-height:1.7;">A misaligned life cannot curate a universe. The real work is not scheduling content — it is removing everything that drains the energy required to even imagine differently. Alignment is the source of energy. Misalignment is the source of exhaustion. Until that is understood in the body — not just intellectually — everything else is secondary.</p>
+  </div>
+
+  <div style="font-size:0.85rem;color:var(--muted);line-height:1.7;margin-bottom:1.5rem;padding:1rem 1.25rem;background:var(--bg2);border-radius:var(--border-radius-lg,12px);border:1px solid var(--border);">Which is exactly why everything else in this document exists. The businesses, the automations, the landing pages, the filming schedules — none of it is the point in itself. But all of it serves the point. Every obligation we automate is time returned to what matters. Every contract we close is freedom we're buying back. Every system we build is one less thing holding us in place.</div>
+
+  <div class="milestones-title">The intent</div>
   <div class="milestone-list">
-    <div class="milestone"><div class="milestone-dot lh"></div><div class="milestone-text"><strong>Now</strong> — Protected weekly time slot. Filming session with the Boss every 2 weeks. Extract audio bytes, write, map content, show up.</div></div>
+    <div class="milestone"><div class="milestone-dot lh"></div><div class="milestone-text"><strong>Now</strong> — Be available. Show up with receptivity and desire to participate — whether that means filming, editing, writing, or extracting audio gems from past recordings. No rigid form. Just presence and openness to what wants to come through.</div></div>
+    <div class="milestone"><div class="milestone-dot lh"></div><div class="milestone-text"><strong>The library</strong> — Build the archive. Recordings, sound bytes, raw material from every session with the Boss. The library is built before any doors are opened. 16 months of building before any public launch.</div></div>
     <div class="milestone"><div class="milestone-dot lh"></div><div class="milestone-text"><strong>Late summer 2026</strong> — Power Weekend in Montreal with the Boss. Ground knowledge, produce, unlock the next level.</div></div>
-    <div class="milestone"><div class="milestone-dot lh"></div><div class="milestone-text"><strong>December 2026</strong> — Full 2–3 week production retreat in Mexico. The collective arrives ready. LIONHEART as full-time pursuit begins.</div></div>
-    <div class="milestone"><div class="milestone-dot lh"></div><div class="milestone-text"><strong>2027</strong> — Return with renewed clarity. Double down through low painting season (Dec–Feb). Library growing, sound developing.</div></div>
+    <div class="milestone"><div class="milestone-dot lh"></div><div class="milestone-text"><strong>December 2026</strong> — Full 2–3 week production retreat in Mexico. The collective arrives with capacity. LIONHEART as a full-time pursuit begins in earnest.</div></div>
+    <div class="milestone"><div class="milestone-dot lh"></div><div class="milestone-text"><strong>2027</strong> — The life and the work converge. The library grows. The community forms around the sound, not the schedule.</div></div>
     <div class="milestone"><div class="milestone-dot lh"></div><div class="milestone-text"><strong>December 2027</strong> — Second retreat. Deeper capacity. Clearer sound. Closer to ready.</div></div>
-    <div class="milestone"><div class="milestone-dot lh"></div><div class="milestone-text"><strong>The horizon</strong> — Full transplant. Mobile. Producing LIONHEART full time. Anywhere in the world.</div></div>
+    <div class="milestone"><div class="milestone-dot lh"></div><div class="milestone-text"><strong>Before end of 2028</strong> — Full transplant. The life is the content. The content is the business. Anywhere in the world.</div></div>
   </div>
 </section>
 
-<!-- ============================================================ -->
 <!-- MOKSHA -->
-<!-- ============================================================ -->
 <section class="section" id="moksha">
   <div class="proj-vision moksha">
     <p>MOKSHA is a once-in-a-generation opportunity and we are standing inside it with our eyes open.</p>
@@ -474,69 +218,251 @@
     <p>What sets us apart is not the technology. Everyone has access to the same tools. What sets us apart is who we are — our professionalism, our hunger, our clarity, and the level of guidance and competence behind us.</p>
     <p>The model is simple and powerful. We build once, deploy repeatedly. Systems that scale. Revenue that compounds. MOKSHA is not just a business. It is the engine of our independence.</p>
   </div>
-
-  <div class="horizon-block moksha">
-    <p>If three guys painting for residential clients can generate $300K — what can four guys building scalable automation solutions for commercial and corporate clients generate? 3X that? 7 figures by 2028? Let's build toward it and find out. We don't have a ceiling yet. That's the point.</p>
-  </div>
-
+  <div class="horizon-block moksha"><p>If three guys painting for residential clients can generate $300K — what can four guys building scalable automation solutions for commercial and corporate clients generate? 3X that? 7 figures by 2028? Let's build toward it and find out. We don't have a ceiling yet. That's the point.</p></div>
   <div class="milestones-title" style="margin-top:1.5rem;">Milestones</div>
   <div class="milestone-list">
     <div class="milestone"><div class="milestone-dot moksha"></div><div class="milestone-text"><strong>March–May 2026</strong> — Automate our own businesses first: FIDELIO, OSTÉOPEINTURE, RSV. Liberate our own energy before we liberate others.</div></div>
     <div class="milestone"><div class="milestone-dot moksha"></div><div class="milestone-text"><strong>April/May 2026</strong> — ORIGYN audit and implementation. Headquarters established (Rob + Loric shared workspace).</div></div>
     <div class="milestone"><div class="milestone-dot moksha"></div><div class="milestone-text"><strong>May–July 2026</strong> — EATLOVE audit and implementation.</div></div>
     <div class="milestone"><div class="milestone-dot moksha"></div><div class="milestone-text"><strong>July/August 2026</strong> — 7 companies automated. Begin turning outward.</div></div>
-    <div class="milestone"><div class="milestone-dot moksha"></div><div class="milestone-text"><strong>Fall 2026</strong> — Landing page live, outreach begins, packages and audits offered publicly.</div></div>
-    <div class="milestone"><div class="milestone-dot moksha"></div><div class="milestone-text"><strong>End of 2026</strong> — 2 real paying external clients.</div></div>
+    <div class="milestone"><div class="milestone-dot moksha"></div><div class="milestone-text"><strong>Fall 2026</strong> — Landing page live, outreach begins, packages and audits offered publicly. 2 real paying external clients.</div></div>
     <div class="milestone"><div class="milestone-dot moksha"></div><div class="milestone-text"><strong>2027</strong> — 10 clients over the year. Location-independent revenue. 7-figure trajectory.</div></div>
+  </div>
+
+  <hr class="op-divider">
+  <div class="op-section-title" style="margin-top:0;">Full build priority matrix — all clients</div>
+
+  <div class="tier-block tier-ultimate">
+    <div class="tier-header"><span class="tier-badge">Ultimate</span><span class="tier-desc">Do first — nothing else starts until these are live</span></div>
+    <div class="build-grid">
+      <div class="build-card"><div class="build-id">M1</div><div class="build-name">Master AI project hub</div><div class="build-meta"><span class="build-tag moksha">MOKSHA internal</span><span class="build-tag">TBD hrs — scope first</span></div></div>
+      <div class="build-card"><div class="build-id">F1</div><div class="build-name">Content inventory & publishing hub</div><div class="build-meta"><span class="build-tag fidelio">FIDELIO</span><span class="build-tag">15 hrs</span></div></div>
+    </div>
+  </div>
+
+  <div class="tier-block tier-high">
+    <div class="tier-header"><span class="tier-badge">High</span><span class="tier-desc">Start ASAP — can run in parallel</span></div>
+    <div class="build-grid">
+      <div class="build-card"><div class="build-id">M2</div><div class="build-name">Personal scribe (bilingual meeting recorder)</div><div class="build-meta"><span class="build-tag moksha">MOKSHA internal</span><span class="build-tag">TBD hrs</span></div></div>
+      <div class="build-card"><div class="build-id">F2</div><div class="build-name">Cross-platform audit tool</div><div class="build-meta"><span class="build-tag fidelio">FIDELIO</span><span class="build-tag">8 hrs or manual</span></div></div>
+      <div class="build-card"><div class="build-id">F3</div><div class="build-name">Post-production AI pipeline</div><div class="build-meta"><span class="build-tag fidelio">FIDELIO</span><span class="build-tag">15 hrs</span></div></div>
+      <div class="build-card"><div class="build-id">P1</div><div class="build-name">Lead intake & estimate booking</div><div class="build-meta"><span class="build-tag painting">PAINTING</span><span class="build-tag">10 hrs</span></div></div>
+      <div class="build-card"><div class="build-id">P2a</div><div class="build-name">Quote structure generator</div><div class="build-meta"><span class="build-tag painting">PAINTING</span><span class="build-tag">15 hrs</span></div></div>
+      <div class="build-card"><div class="build-id">P2b</div><div class="build-name">Quote formatting + PDF + email send</div><div class="build-meta"><span class="build-tag painting">PAINTING</span><span class="build-tag">10 hrs</span></div></div>
+      <div class="build-card"><div class="build-id">R1</div><div class="build-name">Simply.Coach + Stripe + coaching pipeline</div><div class="build-meta"><span class="build-tag rsv">RSV</span><span class="build-tag">15 hrs</span></div></div>
+    </div>
+  </div>
+
+  <div class="tier-block tier-med">
+    <div class="tier-header"><span class="tier-badge">Med</span><span class="tier-desc">May onwards — once high priorities done</span></div>
+    <div class="build-grid">
+      <div class="build-card"><div class="build-id">M3</div><div class="build-name">Client audit intake tool</div><div class="build-meta"><span class="build-tag moksha">MOKSHA internal</span><span class="build-tag">8 hrs</span><span class="build-tag urgent">Before ORIGYN</span></div></div>
+      <div class="build-card"><div class="build-id">F4</div><div class="build-name">Text overlay / After Effects assistant</div><div class="build-meta"><span class="build-tag fidelio">FIDELIO</span><span class="build-tag">15 hrs</span></div></div>
+      <div class="build-card"><div class="build-id">F5</div><div class="build-name">Pre-production research assistant</div><div class="build-meta"><span class="build-tag fidelio">FIDELIO</span><span class="build-tag">15 hrs</span></div></div>
+      <div class="build-card"><div class="build-id">W1</div><div class="build-name">Weddings intake form</div><div class="build-meta"><span class="build-tag fidelio">WEDDINGS</span><span class="build-tag">3 hrs</span></div></div>
+      <div class="build-card"><div class="build-id">P3</div><div class="build-name">Employee screening form</div><div class="build-meta"><span class="build-tag painting">PAINTING</span><span class="build-tag">4 hrs</span></div></div>
+      <div class="build-card"><div class="build-id">P4</div><div class="build-name">Time tracker / project cost tracker</div><div class="build-meta"><span class="build-tag painting">PAINTING</span><span class="build-tag">10 hrs</span></div></div>
+      <div class="build-card"><div class="build-id">R2</div><div class="build-name">Yoga class comms automation</div><div class="build-meta"><span class="build-tag rsv">RSV</span><span class="build-tag">3 hrs</span></div></div>
+      <div class="build-card"><div class="build-id">R3</div><div class="build-name">Eventbrite → Mailchimp bridge</div><div class="build-meta"><span class="build-tag rsv">RSV</span><span class="build-tag">4 hrs</span></div></div>
+      <div class="build-card"><div class="build-id">R4</div><div class="build-name">Workshop email sequences</div><div class="build-meta"><span class="build-tag rsv">RSV</span><span class="build-tag">4 hrs</span></div></div>
+      <div class="build-card"><div class="build-id">R5</div><div class="build-name">Zoom recording webhook</div><div class="build-meta"><span class="build-tag rsv">RSV</span><span class="build-tag">3 hrs</span></div></div>
+    </div>
+  </div>
+
+  <div class="tier-block tier-low">
+    <div class="tier-header"><span class="tier-badge">Low</span><span class="tier-desc">July/August — strong base established</span></div>
+    <div class="build-grid">
+      <div class="build-card"><div class="build-id">M4</div><div class="build-name">YouTube summarizer</div><div class="build-meta"><span class="build-tag moksha">MOKSHA internal</span><span class="build-tag">6 hrs</span></div></div>
+      <div class="build-card"><div class="build-id">F6</div><div class="build-name">Content scripting tool</div><div class="build-meta"><span class="build-tag fidelio">FIDELIO</span><span class="build-tag">10 hrs</span></div></div>
+      <div class="build-card"><div class="build-id">P5</div><div class="build-name">Finance system</div><div class="build-meta"><span class="build-tag painting">PAINTING</span><span class="build-tag">15 hrs</span></div></div>
+      <div class="build-card"><div class="build-id">P2c</div><div class="build-name">Floor plan analyzer</div><div class="build-meta"><span class="build-tag painting">PAINTING</span><span class="build-tag">20 hrs</span></div></div>
+      <div class="build-card"><div class="build-id">R6</div><div class="build-name">Content post-production pipeline</div><div class="build-meta"><span class="build-tag rsv">RSV</span><span class="build-tag">15 hrs</span></div></div>
+      <div class="build-card"><div class="build-id">R7</div><div class="build-name">Immersive intake automation</div><div class="build-meta"><span class="build-tag rsv">RSV</span><span class="build-tag">12 hrs</span></div></div>
+      <div class="build-card"><div class="build-id">R8</div><div class="build-name">Financial dashboard</div><div class="build-meta"><span class="build-tag rsv">RSV</span><span class="build-tag">10 hrs</span></div></div>
+    </div>
   </div>
 </section>
 
-<!-- ============================================================ -->
 <!-- FIDELIO -->
-<!-- ============================================================ -->
 <section class="section" id="fidelio">
   <div class="proj-vision fidelio">
     <p>FIDELIO and LXR are two faces of the same production capacity. Together they are the training ground — the place where we build the technical skills, the professional discipline, and the collaborative muscle that LIONHEART will eventually demand of us.</p>
     <p>The goal is not perfection. It is consistency, efficiency, and progressive elevation. We show up, we deliver, we get better every time.</p>
-    <p>LXR's network is under-leveraged. The more we automate, the more we free ourselves from what bogs us down — and the more we can show up together, at full capacity, for higher-budget work.</p>
     <p>The vision is a unified production team — not separate entities pulling in different directions, but four people who move as one. We can do much more, much better, collectively.</p>
   </div>
-
   <div class="milestones-title">Milestones</div>
   <div class="milestone-list">
     <div class="milestone"><div class="milestone-dot fidelio"></div><div class="milestone-text"><strong>April 5</strong> — fidelio weddings landing page live. Owner: Graeme.</div></div>
     <div class="milestone"><div class="milestone-dot fidelio"></div><div class="milestone-text"><strong>April 20</strong> — FIDELIO Productions landing page live. Owner: Graeme.</div></div>
-    <div class="milestone"><div class="milestone-dot fidelio"></div><div class="milestone-text"><strong>April onward</strong> — Weddings outreach: shorts, Facebook posts, IG page, highlight reel. Outreach = ASAP.</div></div>
     <div class="milestone"><div class="milestone-dot fidelio"></div><div class="milestone-text"><strong>2026</strong> — 3 weddings delivered. 2 collective production clients under LXR or FIDELIO.</div></div>
     <div class="milestone"><div class="milestone-dot fidelio"></div><div class="milestone-text"><strong>Post-summer 2026</strong> — Refresh portfolio, attend one expo, plant seeds for 2027 wedding season.</div></div>
     <div class="milestone"><div class="milestone-dot fidelio"></div><div class="milestone-text"><strong>2027</strong> — 8–12 weddings. 5–10 collective production clients. Full team operating as one unit.</div></div>
-    <div class="milestone"><div class="milestone-dot fidelio"></div><div class="milestone-text"><strong>dr. alexandra</strong> — Weekly YouTube publishing stable, post-production automated, channel growing as Quebec MSK reference.</div></div>
   </div>
+
+  <hr class="op-divider">
+
+  <!-- FIDELIO INTERNAL -->
+  <div class="subsection-title"><span class="dot dot-fidelio"></span>FIDELIO Internal</div>
+  <div class="op-section-title">Landing pages</div>
+  <div class="task-list">
+    <div class="task-item"><span class="task-owner own-g">Graeme</span><div class="task-content"><div class="task-name">Build fidelio weddings landing page</div><div class="task-dl">Deadline: April 5 · fidelioproductions.life/weddings</div></div></div>
+    <div class="task-item"><span class="task-owner own-l">Loric</span><div class="task-content"><div class="task-name">Write weddings page copy (tagline, who we are, services, packages, about us, contact)</div><div class="task-dl">Deadline: ASAP — needed before build</div></div></div>
+    <div class="task-item"><span class="task-owner own-r">Rob</span><div class="task-content"><div class="task-name">Edit weddings portfolio reel — hero header, highlight reel, best shots (quality++)</div><div class="task-dl">Deadline: ASAP</div></div></div>
+    <div class="task-item"><span class="task-owner own-r">Rob</span><div class="task-content"><div class="task-name">Extract best wedding photos + team BTS shots / headshots</div><div class="task-dl">Deadline: ASAP</div></div></div>
+    <div class="task-item"><span class="task-owner own-g">Graeme</span><div class="task-content"><div class="task-name">Build FIDELIO Productions main landing page</div><div class="task-dl">Deadline: April 20 · fidelioproductions.life</div></div></div>
+    <div class="task-item"><span class="task-owner own-l">Loric</span><div class="task-content"><div class="task-name">Write FIDELIO main page copy (tagline, who we are, services, about us)</div><div class="task-dl">Deadline: April 10</div></div></div>
+    <div class="task-item"><span class="task-owner own-g">Graeme</span><div class="task-content"><div class="task-name">Capture team BTS photos at next shoots (podcast + Dre Alexandra clinic filmings)</div><div class="task-dl">Ongoing</div></div></div>
+  </div>
+  <div class="op-section-title">Automations (handled by MOKSHA)</div>
+  <div class="task-list">
+    <div class="task-item"><span class="task-owner own-a">MOKSHA</span><div class="task-content"><div class="task-name">F1 — Content inventory & publishing hub</div><div class="task-dl">ULTIMATE priority · 15 hrs</div></div></div>
+    <div class="task-item"><span class="task-owner own-a">MOKSHA</span><div class="task-content"><div class="task-name">F2 — Cross-platform audit tool</div><div class="task-dl">HIGH priority · 8 hrs</div></div></div>
+    <div class="task-item"><span class="task-owner own-a">MOKSHA</span><div class="task-content"><div class="task-name">F3 — Post-production AI pipeline</div><div class="task-dl">HIGH priority · 15 hrs</div></div></div>
+  </div>
+
+  <!-- WEDDINGS -->
+  <div class="subsection-title" style="margin-top:2rem;"><span class="dot dot-fidelio"></span>FIDELIO Weddings</div>
+  <div class="op-section-title">Outreach</div>
+  <div class="task-list">
+    <div class="task-item"><span class="task-owner own-a">All</span><div class="task-content"><div class="task-name">Strategy meeting to assign outreach tasks</div><div class="task-dl">Imminent</div></div></div>
+    <div class="task-item"><span class="task-owner own-r">Rob</span><div class="task-content"><div class="task-name">Edit shorts from all previous wedding footage for social media</div><div class="task-dl">ASAP — feeds outreach</div></div></div>
+    <div class="task-item"><span class="task-owner own-a">All</span><div class="task-content"><div class="task-name">Facebook post with landing page + highlight reel once live</div><div class="task-dl">April 5</div></div></div>
+    <div class="task-item"><span class="task-owner own-a">All</span><div class="task-content"><div class="task-name">Build IG page for FIDELIO Weddings</div><div class="task-dl">April — to discuss</div></div></div>
+  </div>
+  <div class="op-section-title">Season goals</div>
+  <div class="milestone-list">
+    <div class="milestone"><div class="milestone-dot fidelio"></div><div class="milestone-text"><strong>2026</strong> — 3 weddings booked and delivered</div></div>
+    <div class="milestone"><div class="milestone-dot fidelio"></div><div class="milestone-text"><strong>Post-summer 2026</strong> — Update portfolio with summer footage. Attend 1 wedding expo. Plant seeds for 2027.</div></div>
+    <div class="milestone"><div class="milestone-dot fidelio"></div><div class="milestone-text"><strong>2027</strong> — 8–12 weddings</div></div>
+  </div>
+
+  <!-- DRE ALEXANDRA -->
+  <div class="subsection-title" style="margin-top:2rem;"><span class="dot dot-fidelio"></span>Dre Alexandra — MSK & Regenerative Medicine</div>
+  <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;line-height:1.6;">Positioning Dre Alexandra as the go-to Quebec reference in MSK and regenerative medicine. French-language first, English evolution planned for the podcast. Quality over quantity — every asset must have a reason to exist before the camera turns on.</p>
+  <a class="ext-link" href="https://docs.google.com/document/d/1k2c__pt3TL85PjU6-uLQs5w3SMFUMYxIuLv8OJZ02aM/edit?usp=drive_link" target="_blank">📄 Full Production Brief — Google Doc</a>
+
+  <div class="op-section-title" style="margin-top:1.5rem;">4-week production cycle</div>
+  <table class="data-table">
+    <thead><tr><th>Week</th><th>Filming</th><th>Output</th><th>People</th></tr></thead>
+    <tbody>
+      <tr><td>W1 — Tue 3–6pm</td><td>Fondations x3</td><td>3 standalone YouTube videos</td><td>Lubo + Graeme</td></tr>
+      <tr><td>W2 — Tue 3–6pm</td><td>TikTok Capsules A</td><td>7–10 capsules from W1 Fondations</td><td>Lubo + Graeme</td></tr>
+      <tr><td>W3A — Tue 12–5:30pm</td><td>Podcast (alt. monthly)</td><td>~1 long-format + 4–5 shorts</td><td>Lubo + Graeme</td></tr>
+      <tr><td>W3B — Tue 10:30am–5pm</td><td>Vlog (alt. monthly)</td><td>~1 vlog + 4–5 shorts</td><td>Lubo + Graeme + Rob</td></tr>
+      <tr><td>W4 — Tue 3–6pm</td><td>TikTok Capsules B</td><td>7–10 additional capsules</td><td>Lubo + Graeme</td></tr>
+    </tbody>
+  </table>
+
+  <div class="op-section-title">Monthly hours per person</div>
+  <table class="data-table">
+    <thead><tr><th>Person</th><th>Role</th><th>Hours/month</th></tr></thead>
+    <tbody>
+      <tr><td>Loric</td><td>Pre-prod, YT copy, posting, admin, editorial sessions</td><td>28H</td></tr>
+      <tr><td>Graeme</td><td>YT lead — editing, After Effects, thumbnails, FB/IG scheduling</td><td>50–51H</td></tr>
+      <tr><td>Lubo</td><td>Shorts lead — TikTok editing, extraction, scheduling</td><td>45–46H</td></tr>
+      <tr><td>Rob</td><td>Direction + filming (vlogs and events only)</td><td>4H</td></tr>
+      <tr><td><strong>Total</strong></td><td></td><td><strong>128–130H/month</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="op-section-title">YouTube launch pipeline</div>
+  <table class="data-table">
+    <thead><tr><th>#</th><th>Asset</th><th>Type</th><th>Filmed</th><th>Launch</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Endométriose</td><td>Podcast</td><td>Mar 9</td><td>Mar 22</td></tr>
+      <tr><td>2</td><td>Zoom Podcast</td><td>Podcast</td><td>Feb 24</td><td>Apr 2</td></tr>
+      <tr><td>3</td><td>Fondation 1.1 — Intro au PRP</td><td>Fondation</td><td>Feb 10</td><td>Apr 6</td></tr>
+      <tr><td>4</td><td>Fondation 1.2 — Histoire du PRP</td><td>Fondation</td><td>Feb 10</td><td>Apr 13</td></tr>
+      <tr><td>5</td><td>Fondation 1.3 — Arthrose 101</td><td>Fondation</td><td>Feb 10</td><td>Apr 20</td></tr>
+      <tr><td>6</td><td>Vlog #3 — Physio Boisbriand</td><td>Vlog</td><td>Mar 16</td><td>Apr 27</td></tr>
+      <tr><td>7</td><td>Fondation 2.1 — TBD</td><td>Fondation</td><td>Mar 3</td><td>May 4</td></tr>
+      <tr><td>8</td><td>Fondation 2.2 — TBD</td><td>Fondation</td><td>Mar 3</td><td>May 11</td></tr>
+      <tr><td>9</td><td>Fondation 2.3 — TBD</td><td>Fondation</td><td>Mar 3</td><td>May 18</td></tr>
+      <tr><td>10</td><td>Podcast / Vlog — TBD</td><td>TBD</td><td>Apr 28</td><td>May 25</td></tr>
+      <tr><td>11–13</td><td>Fondation 3.1–3.3 — TBD</td><td>Fondation</td><td>Apr 7</td><td>Jun 1–15</td></tr>
+      <tr><td>15–17</td><td>Fondation 4.4–4.6 — TBD</td><td>Fondation</td><td>May 5</td><td>Jun 29 – Jul 13</td></tr>
+      <tr><td>19–21</td><td>Fondation 5.1–5.3 — TBD</td><td>Fondation</td><td>Jun 2</td><td>Jul 27 – Aug 10</td></tr>
+    </tbody>
+  </table>
+
+  <div class="op-section-title">Upcoming filming schedule</div>
+  <div class="filming-grid">
+    <div class="filming-date">Mar 24 (Tue)</div><div class="filming-act">TikTok Capsules — scripts from last 6 YT videos + B-roll PRP</div>
+    <div class="filming-date">Mar 31 (Tue)</div><div class="filming-act">TikTok Capsules — from last 6 YT + redo TT intro</div>
+    <div class="filming-date">Apr 7 (Tue)</div><div class="filming-act">Fondations x3 (Session 3)</div>
+    <div class="filming-date">Apr 14 (Tue)</div><div class="filming-act">TikTok Capsules — derived from Apr 7</div>
+    <div class="filming-date">Apr 21 (Tue)</div><div class="filming-act">Podcast — Dr. Frank Johnson? TBD</div>
+    <div class="filming-date">Apr 28 (Tue)</div><div class="filming-act">TikTok Capsules</div>
+    <div class="filming-date">May 5 (Tue)</div><div class="filming-act">Fondations x3 (Session 4)</div>
+    <div class="filming-date">May 12 (Tue)</div><div class="filming-act">TikTok Capsules — derived from May 5</div>
+    <div class="filming-date">May 19 (Tue)</div><div class="filming-act">Vlog — TBD</div>
+    <div class="filming-date">May 26 (Tue)</div><div class="filming-act">TikTok Capsules</div>
+    <div class="filming-date">Jun 2 (Tue)</div><div class="filming-act">Fondations x3 (Session 5)</div>
+    <div class="filming-date">Jun 30 (Tue)</div><div class="filming-act">Fondations x3 (Session 6)</div>
+  </div>
+
+  <div class="op-section-title" style="margin-top:1.5rem;">Current task backlog</div>
+  <table class="data-table">
+    <thead><tr><th>Asset</th><th>Subtask</th><th>Owner</th><th>Status</th><th>Due</th></tr></thead>
+    <tbody>
+      <tr><td>POD14 — Endométriose</td><td>Intro + full post-prod</td><td>Graeme</td><td><span class="sb sb-prog">In progress</span></td><td>Before Mar 22</td></tr>
+      <tr><td>POD12 — Zoom Podcast</td><td>Full edit</td><td>Lubo</td><td><span class="sb sb-pend">Not started</span></td><td>Before Apr 2</td></tr>
+      <tr><td>Fondation #1 — Intro au PRP</td><td>After Effects + Thumbnail</td><td>Graeme</td><td><span class="sb sb-prog">First cut done</span></td><td>Before Apr 7</td></tr>
+      <tr><td>Fondation #2 — Histoire du PRP</td><td>After Effects + Thumbnail</td><td>Graeme</td><td><span class="sb sb-prog">First cut done</span></td><td>Before Apr 14</td></tr>
+      <tr><td>Fondation #3 — Arthrose 101</td><td>After Effects + Thumbnail</td><td>Graeme</td><td><span class="sb sb-prog">First cut done</span></td><td>Before Apr 21</td></tr>
+      <tr><td>Fondation #4</td><td>First cut + AE + Thumbnail</td><td>Graeme</td><td><span class="sb sb-pend">Not started</span></td><td>TBD — title pending</td></tr>
+      <tr><td>Fondation #5</td><td>First cut + AE + Thumbnail</td><td>Graeme</td><td><span class="sb sb-pend">Not started</span></td><td>TBD — title pending</td></tr>
+      <tr><td>Fondation #6</td><td>First cut + AE + Thumbnail</td><td>Graeme</td><td><span class="sb sb-pend">Not started</span></td><td>TBD — title pending</td></tr>
+      <tr><td>Physio Boisbriand Vlog</td><td>Full edit</td><td>Lubo</td><td><span class="sb sb-prog">In edit</span></td><td>Before Apr 30</td></tr>
+      <tr><td>Physio Boisbriand Vlog</td><td>Shorts extraction (4–5)</td><td>Lubo</td><td><span class="sb sb-pend">Pending edit</span></td><td>After edit done</td></tr>
+      <tr><td>Fondations #1–6</td><td>YT copy (desc, titles, timestamps)</td><td>Loric</td><td><span class="sb sb-pend">Pending</span></td><td>Rolling</td></tr>
+      <tr><td>Mar 24 TikTok session</td><td>Scripts prep from last 6 YT videos</td><td>Loric</td><td><span class="sb sb-urg">To prepare</span></td><td>Before Mar 24</td></tr>
+      <tr><td>Mar 24 TikTok session</td><td>TT intro redo — script</td><td>Loric</td><td><span class="sb sb-urg">To prepare</span></td><td>Before Mar 24</td></tr>
+    </tbody>
+  </table>
 </section>
 
-<!-- ============================================================ -->
 <!-- LXR -->
-<!-- ============================================================ -->
 <section class="section" id="lxr">
   <div class="proj-vision lxr">
     <p>LXR and FIDELIO are two faces of the same production capacity. LXR carries a stronger industry network and is already generating serious client demand. The more the collective comes together — automating what bogs us down, building shared systems, operating as a unit — the more we can absorb that demand and deliver at the level it deserves.</p>
     <p>Separate, we are limited. Together, Rob's creative direction and industry connections combined with the FIDELIO workforce is a different animal entirely. Higher-budget work. More serious clients. A reputation that compounds.</p>
     <p>The objective: show up as professionals. Elevate the quality. Attract clients who deserve our level — and deliver beyond what they expected.</p>
   </div>
-
   <div class="milestones-title">Milestones</div>
   <div class="milestone-list">
     <div class="milestone"><div class="milestone-dot lxr"></div><div class="milestone-text"><strong>March (now)</strong> — Clear immediate backlog: Paul Siounis 1, Giulia & Denver, Mila socials, FOGG AI, ATP.</div></div>
     <div class="milestone"><div class="milestone-dot lxr"></div><div class="milestone-text"><strong>April onward</strong> — Mila podcast recurring production stable. JA Quebec delivered. Network fully activated.</div></div>
-    <div class="milestone"><div class="milestone-dot lxr"></div><div class="milestone-text"><strong>Summer 2026</strong> — Full swing with collective support. Higher-budget projects targeted. Lubo and Graeme available as FIDELIO automates.</div></div>
-    <div class="milestone"><div class="milestone-dot lxr"></div><div class="milestone-text"><strong>2026</strong> — 2 collective clients under LXR or FIDELIO banner. Reputation building.</div></div>
+    <div class="milestone"><div class="milestone-dot lxr"></div><div class="milestone-text"><strong>Summer 2026</strong> — Full swing with collective support. Higher-budget projects targeted.</div></div>
+    <div class="milestone"><div class="milestone-dot lxr"></div><div class="milestone-text"><strong>2026</strong> — 2 collective clients under LXR or FIDELIO banner.</div></div>
     <div class="milestone"><div class="milestone-dot lxr"></div><div class="milestone-text"><strong>2027</strong> — 5–10 collective production clients. LXR network fully absorbed into team capacity.</div></div>
   </div>
+  <hr class="op-divider">
+  <div class="op-section-title" style="margin-top:0;">Immediate deadlines — next 14 days</div>
+  <table class="data-table">
+    <thead><tr><th>Project</th><th>Task</th><th>Est. Hours</th><th>Deadline</th></tr></thead>
+    <tbody>
+      <tr><td>Paul Siounis 1</td><td>Wedding edit</td><td>4–5 hrs</td><td><span class="sb sb-urg">Tomorrow night</span></td></tr>
+      <tr><td>Giulia & Denver</td><td>Wedding edit</td><td>4–6 hrs</td><td><span class="sb sb-urg">ASAP</span></td></tr>
+      <tr><td>Mila Podcast</td><td>Initial filming</td><td>3–4 hrs</td><td><span class="sb sb-urg">This Friday</span></td></tr>
+      <tr><td>Mila Socials</td><td>Video edits</td><td>30 hrs total</td><td><span class="sb sb-prog">Next 10 days</span></td></tr>
+      <tr><td>FOGG AI Ad</td><td>Logo & video ad</td><td>Full day</td><td><span class="sb sb-pend">Queued after Mila</span></td></tr>
+      <tr><td>ATP</td><td>Arcaid shoot deliverables</td><td>4–8 hrs</td><td><span class="sb sb-pend">Pending</span></td></tr>
+      <tr><td>Aurelie Podcast</td><td>Reels</td><td>2 hrs</td><td><span class="sb sb-pend">Latent</span></td></tr>
+    </tbody>
+  </table>
+  <div class="op-section-title">Client backlog</div>
+  <table class="data-table">
+    <thead><tr><th>Project</th><th>Task</th><th>Est. Time</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Paul Siounis 2</td><td>Wedding edits</td><td>10–12 hrs</td><td><span class="sb sb-pend">Flexible / Pending</span></td></tr>
+      <tr><td>JA Quebec</td><td>Shoot & edit</td><td>1.5 days</td><td><span class="sb sb-prog">Scheduled early April</span></td></tr>
+      <tr><td>Mila Podcast</td><td>Recurring bi-weekly filming + post per episode</td><td>4 hrs + 0.5–1 day</td><td><span class="sb sb-done">Recurring</span></td></tr>
+    </tbody>
+  </table>
 </section>
 
-<!-- ============================================================ -->
 <!-- PAINTING -->
-<!-- ============================================================ -->
 <section class="section" id="painting">
   <div class="proj-vision painting">
     <p>OSTÉOPEINTURE is the engine. It funds everything — the collective, the projects, the freedom we are building toward. We respect it for that. We show up to it the same way we show up to everything: with full professionalism, hunger, and pride in the work.</p>
@@ -544,30 +470,55 @@
     <p>The standard: own our value. Charge what we are worth. Nothing under $2K unless trivial. Aim for big contracts. Serious clients. Work that respects our level.</p>
     <p>We are not just painters. We are builders using every tool available — including the brush.</p>
   </div>
-
   <div class="milestones-title">Milestones</div>
   <div class="milestone-list">
     <div class="milestone"><div class="milestone-dot painting"></div><div class="milestone-text"><strong>End of March</strong> — Hiring ad live on Indeed (link to MOKSHA-built intake form). Touch base with all interior potentials: ELM, LASALLE, STE-ELIZABETH.</div></div>
     <div class="milestone"><div class="milestone-dot painting"></div><div class="milestone-text"><strong>First week of April</strong> — Flyering resumes. Facebook ad live mid-April. Hire 2 workers: 1 experienced painter + 1 carpenter.</div></div>
-    <div class="milestone"><div class="milestone-dot painting"></div><div class="milestone-text"><strong>April–May</strong> — Exterior leads gauged, estimates scheduled (1/week each), full summer schedule built.</div></div>
+    <div class="milestone"><div class="milestone-dot painting"></div><div class="milestone-text"><strong>April–May</strong> — Estimates scheduled (1/week each). Full summer schedule built.</div></div>
     <div class="milestone"><div class="milestone-dot painting"></div><div class="milestone-text"><strong>Summer</strong> — Peak revenue. Big contracts only. 4 days/week per person. Flex day for MOKSHA (Loric) and weddings (Graeme, Lubo) when booked.</div></div>
     <div class="milestone"><div class="milestone-dot painting"></div><div class="milestone-text"><strong>July</strong> — Begin planning October through January. No more empty winters.</div></div>
-    <div class="milestone"><div class="milestone-dot painting"></div><div class="milestone-text"><strong>October–November</strong> — Wrap strong. Revenue tallied. Review. Prepare for low season.</div></div>
     <div class="milestone"><div class="milestone-dot painting"></div><div class="milestone-text"><strong>December–February</strong> — Low season = high leverage. MOKSHA and LIONHEART take over.</div></div>
   </div>
+  <hr class="op-divider">
+  <div class="op-section-title" style="margin-top:0;">Immediate admin tasks</div>
+  <div class="task-list">
+    <div class="task-item"><span class="task-owner own-l">Loric</span><div class="task-content"><div class="task-name">Finance update</div><div class="task-dl">Deadline: March 21</div></div></div>
+    <div class="task-item"><span class="task-owner own-l">Loric</span><div class="task-content"><div class="task-name">Taxes report</div><div class="task-dl">ASAP</div></div></div>
+    <div class="task-item"><span class="task-owner own-l">Loric</span><div class="task-content"><div class="task-name">Outstanding invoicing</div><div class="task-dl">This week</div></div></div>
+  </div>
+  <div class="op-section-title">Active interior quotes</div>
+  <table class="data-table">
+    <thead><tr><th>Client</th><th>Status</th><th>Target</th></tr></thead>
+    <tbody>
+      <tr><td>STE-ELIZABETH</td><td><span class="sb sb-prog">Active</span></td><td>End of April</td></tr>
+      <tr><td>LASALLE</td><td><span class="sb sb-prog">Active</span></td><td>Ready for April?</td></tr>
+      <tr><td>CHARBONNEAU_05</td><td><span class="sb sb-prog">Active</span></td><td>Ready for April</td></tr>
+      <tr><td>ELM</td><td><span class="sb sb-prog">Active</span></td><td>Ready for April?</td></tr>
+    </tbody>
+  </table>
+  <div class="op-section-title">Exterior leads 2026 — high priority</div>
+  <table class="data-table">
+    <thead><tr><th>Client</th><th>Job</th><th>Owner</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>OUTREMONT (Schaefers neighbour)</td><td>Interior + exterior</td><td>G</td><td><span class="sb sb-pend">Touch base</span></td></tr>
+      <tr><td>FREEMAN — Stuart Ave</td><td>Metal cornices + window</td><td>G + LZ</td><td><span class="sb sb-pend">To quote</span></td></tr>
+      <tr><td>PARODI</td><td>Back porch spindles + touch ups</td><td>—</td><td><span class="sb sb-urg">First job — weather permitting</span></td></tr>
+      <tr><td>BORETSKY, Marc</td><td>Adjust quote?</td><td>LS</td><td><span class="sb sb-pend">To confirm</span></td></tr>
+      <tr><td>ADES_02</td><td>Back fence</td><td>LZ</td><td><span class="sb sb-pend">To quote</span></td></tr>
+      <tr><td>HETU_01</td><td>Exterior</td><td>LZ</td><td><span class="sb sb-pend">To quote</span></td></tr>
+      <tr><td>SAVARD</td><td>Cornice</td><td>LZ</td><td><span class="sb sb-pend">To quote</span></td></tr>
+      <tr><td>Sean / Raluca Pana</td><td>669 Grosvenor</td><td>G</td><td><span class="sb sb-pend">Active lead</span></td></tr>
+      <tr><td>SINCLAIR back deck stain</td><td>Quoted</td><td>LS</td><td><span class="sb sb-pend">Ready this year?</span></td></tr>
+      <tr><td>HIRSCHL — 476 Strathcona</td><td>Back siding + cornice</td><td>G</td><td><span class="sb sb-pend">Update quote</span></td></tr>
+      <tr><td>REINDL — De Vimy</td><td>Windows + cornices</td><td>LS</td><td><span class="sb sb-pend">Quoted 2025 — confirm</span></td></tr>
+    </tbody>
+  </table>
 </section>
 
-<!-- ============================================================ -->
 <!-- PHASES -->
-<!-- ============================================================ -->
 <section class="section" id="phases">
-
   <div class="phase-block ph1">
-    <div class="phase-header">
-      <span class="phase-badge">MAR — MAY 2026</span>
-      <span class="phase-name">Phase 1 — Prepare & Build</span>
-      <span class="phase-tagline">Set the foundation. Automate. Launch.</span>
-    </div>
+    <div class="phase-header"><span class="phase-badge">MAR — MAY 2026</span><span class="phase-name">Phase 1 — Prepare & Build</span><span class="phase-tagline">Set the foundation. Automate. Launch.</span></div>
     <div class="phase-rows">
       <div class="phase-row"><div class="phase-proj lh">LIONHEART</div><div class="phase-content">Weekly rhythm established and protected. Filming sessions every 2 weeks begin. Audio extraction from past recordings starts. Library building begins.</div></div>
       <div class="phase-row"><div class="phase-proj moksha">MOKSHA</div><div class="phase-content">Automate FIDELIO and OSTÉOPEINTURE first (Mar–Apr). RSV Phase A live in 2 weeks. ORIGYN audit mid-April, implementation May. EATLOVE scoped. Headquarters established (Apr–May).</div></div>
@@ -576,13 +527,8 @@
       <div class="phase-row"><div class="phase-proj painting">PAINTING</div><div class="phase-content">Hiring ad live, 2 workers recruited. Interior clients confirmed (March). Flyering and Facebook ad live (April). Exterior estimates begin. Summer schedule built. Finance and taxes done.</div></div>
     </div>
   </div>
-
   <div class="phase-block ph2">
-    <div class="phase-header">
-      <span class="phase-badge">JUN — SEPT 2026</span>
-      <span class="phase-name">Phase 2 — Full Production</span>
-      <span class="phase-tagline">Execute at full capacity. Deliver. Earn.</span>
-    </div>
+    <div class="phase-header"><span class="phase-badge">JUN — SEPT 2026</span><span class="phase-name">Phase 2 — Full Production</span><span class="phase-tagline">Execute at full capacity. Deliver. Earn.</span></div>
     <div class="phase-rows">
       <div class="phase-row"><div class="phase-proj lh">LIONHEART</div><div class="phase-content">Bi-weekly filming sessions with the Boss. Sound library growing. First social media clips released. Power Weekend with the Boss in Montreal (late summer). Begin preparing Mexico retreat.</div></div>
       <div class="phase-row"><div class="phase-proj moksha">MOKSHA</div><div class="phase-content">EATLOVE implementation complete (July). 7 companies automated by August. Turn outward — landing page, outreach, packages, audits live. First external client conversations begin.</div></div>
@@ -591,125 +537,45 @@
       <div class="phase-row"><div class="phase-proj painting">PAINTING</div><div class="phase-content">Peak summer season. 2 hired workers on crew. Automations handling intake and quoting. Loric managing more than painting. Big contracts only. Revenue maximized.</div></div>
     </div>
   </div>
-
   <div class="phase-block ph3">
-    <div class="phase-header">
-      <span class="phase-badge">OCT — NOV 2026</span>
-      <span class="phase-name">Phase 3 — Reap & Consolidate</span>
-      <span class="phase-tagline">Harvest results. Review. Plant seeds.</span>
-    </div>
+    <div class="phase-header"><span class="phase-badge">OCT — NOV 2026</span><span class="phase-name">Phase 3 — Reap & Consolidate</span><span class="phase-tagline">Harvest results. Review. Plant seeds.</span></div>
     <div class="phase-rows">
       <div class="phase-row"><div class="phase-proj lh">LIONHEART</div><div class="phase-content">Substantial library built. Full review of what exists. Map what is needed for Mexico retreat. Begin preparing the vision document for the next phase.</div></div>
       <div class="phase-row"><div class="phase-proj moksha">MOKSHA</div><div class="phase-content">2 real paying external clients active. All 7 companies automated. Revenue model validated. Scale plan for 2027 locked.</div></div>
       <div class="phase-row"><div class="phase-proj fidelio">FIDELIO</div><div class="phase-content">dr. alexandra channel growing. Wedding portfolio refreshed. Fall outreach for 2027 season begins. Attend one wedding expo. New reel created.</div></div>
-      <div class="phase-row"><div class="phase-proj lxr">LXR</div><div class="phase-content">Season results reviewed. Best clients identified for 2027. Network relationships deepened. Collective production capacity assessed.</div></div>
+      <div class="phase-row"><div class="phase-proj lxr">LXR</div><div class="phase-content">Season results reviewed. Best clients identified for 2027. Network relationships deepened.</div></div>
       <div class="phase-row"><div class="phase-proj painting">PAINTING</div><div class="phase-content">Season wrapped. Revenue tallied. 2027 strategy drafted. Lead generation continues — no empty winter.</div></div>
     </div>
   </div>
-
   <div class="phase-block ph4">
-    <div class="phase-header">
-      <span class="phase-badge">DEC 2026 — FEB 2027</span>
-      <span class="phase-name">Phase 4 — Regroup & Relaunch</span>
-      <span class="phase-tagline">Mexico. Recharge. Begin the next phase.</span>
-    </div>
+    <div class="phase-header"><span class="phase-badge">DEC 2026 — FEB 2027</span><span class="phase-name">Phase 4 — Regroup & Relaunch</span><span class="phase-tagline">Mexico. Recharge. Begin the next phase.</span></div>
     <div class="phase-rows">
       <div class="phase-row"><div class="phase-proj lh">RETREAT</div><div class="phase-content">December 2026: 2–3 week production retreat in Mexico with the Boss. Full collective. Film, create, plan, bond. The symbolic and practical beginning of LIONHEART as a full-time pursuit.</div></div>
       <div class="phase-row"><div class="phase-proj moksha">JAN–FEB</div><div class="phase-content">Return to Montreal with renewed clarity. Low painting season = high leverage. Double down on MOKSHA client scaling and LIONHEART. Set 2027 targets across all projects.</div></div>
       <div class="phase-row"><div class="phase-proj all">MARCH 2027</div><div class="phase-content">New phase begins. 10 MOKSHA clients target. 8–12 weddings. Collective production team at full capacity. LIONHEART growing. Painting strategic — maximum revenue, minimum friction.</div></div>
     </div>
   </div>
-
 </section>
 
-<!-- ============================================================ -->
 <!-- TIMELINE -->
-<!-- ============================================================ -->
 <section class="section" id="timeline">
   <div class="tl-note">Macro view — March 2026 to December 2026. Each color = one project. Shade intensity = phase intensity.</div>
   <div class="timeline-wrap">
     <table class="timeline">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Mar</th><th>Apr</th><th>May</th>
-          <th>Jun</th><th>Jul</th><th>Aug</th><th>Sep</th>
-          <th>Oct</th><th>Nov</th><th>Dec</th>
-        </tr>
-      </thead>
+      <thead><tr><th></th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th></tr></thead>
       <tbody>
-        <tr>
-          <td>LIONHEART</td>
-          <td class="tl-lh-1">Rhythm est.</td>
-          <td class="tl-lh-1">Library building</td>
-          <td class="tl-lh-1">Library building</td>
-          <td class="tl-lh-2">Filming + editing</td>
-          <td class="tl-lh-2">Filming + editing</td>
-          <td class="tl-lh-2">Power Weekend</td>
-          <td class="tl-lh-2">Filming + editing</td>
-          <td class="tl-lh-3">Full review</td>
-          <td class="tl-lh-3">Prep retreat</td>
-          <td class="tl-lh-4">MEXICO 🦁</td>
-        </tr>
-        <tr>
-          <td>MOKSHA</td>
-          <td class="tl-mk-1">RSV live</td>
-          <td class="tl-mk-1">ORIGYN audit</td>
-          <td class="tl-mk-1">ORIGYN impl. + EATLOVE</td>
-          <td class="tl-mk-2">EATLOVE impl.</td>
-          <td class="tl-mk-2">7 companies automated</td>
-          <td class="tl-mk-2">Turn outward</td>
-          <td class="tl-mk-2">Scale clients</td>
-          <td class="tl-mk-3">2 ext. clients</td>
-          <td class="tl-mk-3">Review + lock 2027</td>
-          <td class="tl-mk-4">Retreat</td>
-        </tr>
-        <tr>
-          <td>FIDELIO</td>
-          <td class="tl-fd-1">Pages + filming sprint</td>
-          <td class="tl-fd-1">YouTube launches</td>
-          <td class="tl-fd-1">Post-prod pipeline</td>
-          <td class="tl-fd-2">Full production</td>
-          <td class="tl-fd-2">Full production</td>
-          <td class="tl-fd-2">Full production</td>
-          <td class="tl-fd-2">Full production</td>
-          <td class="tl-fd-3">Review + refresh</td>
-          <td class="tl-fd-3">New season prep</td>
-          <td class="tl-fd-4">Retreat</td>
-        </tr>
-        <tr>
-          <td>LXR</td>
-          <td class="tl-lx-1">Clear backlog</td>
-          <td class="tl-lx-1">Stable ops</td>
-          <td class="tl-lx-1">Growing</td>
-          <td class="tl-lx-2">Full swing</td>
-          <td class="tl-lx-2">Full swing</td>
-          <td class="tl-lx-2">Full swing</td>
-          <td class="tl-lx-2">Full swing</td>
-          <td class="tl-lx-3">Reap</td>
-          <td class="tl-lx-3">Reap</td>
-          <td class="tl-lx-4">Retreat</td>
-        </tr>
-        <tr>
-          <td>PAINTING</td>
-          <td class="tl-pt-1">Admin + hiring</td>
-          <td class="tl-pt-1">Interior jobs</td>
-          <td class="tl-pt-2">Exterior begins</td>
-          <td class="tl-pt-3">Peak season</td>
-          <td class="tl-pt-3">Peak season</td>
-          <td class="tl-pt-3">Peak season</td>
-          <td class="tl-pt-2">Winding down</td>
-          <td class="tl-pt-1">Review</td>
-          <td class="tl-pt-4">Off-season</td>
-          <td class="tl-pt-4">Retreat</td>
-        </tr>
+        <tr><td>LIONHEART</td><td class="tl-lh-1">Rhythm est.</td><td class="tl-lh-1">Library building</td><td class="tl-lh-1">Library building</td><td class="tl-lh-2">Filming + editing</td><td class="tl-lh-2">Filming + editing</td><td class="tl-lh-2">Power Weekend</td><td class="tl-lh-2">Filming + editing</td><td class="tl-lh-3">Full review</td><td class="tl-lh-3">Prep retreat</td><td class="tl-lh-4">MEXICO 🦁</td></tr>
+        <tr><td>MOKSHA</td><td class="tl-mk-1">RSV live</td><td class="tl-mk-1">ORIGYN audit</td><td class="tl-mk-1">ORIGYN + EATLOVE</td><td class="tl-mk-2">EATLOVE impl.</td><td class="tl-mk-2">7 automated</td><td class="tl-mk-2">Turn outward</td><td class="tl-mk-2">Scale clients</td><td class="tl-mk-3">2 ext. clients</td><td class="tl-mk-3">Lock 2027</td><td class="tl-mk-4">Retreat</td></tr>
+        <tr><td>FIDELIO</td><td class="tl-fd-1">Pages + sprint</td><td class="tl-fd-1">YT launches</td><td class="tl-fd-1">Post-prod pipeline</td><td class="tl-fd-2">Full production</td><td class="tl-fd-2">Full production</td><td class="tl-fd-2">Full production</td><td class="tl-fd-2">Full production</td><td class="tl-fd-3">Review + refresh</td><td class="tl-fd-3">New season prep</td><td class="tl-fd-4">Retreat</td></tr>
+        <tr><td>LXR</td><td class="tl-lx-1">Clear backlog</td><td class="tl-lx-1">Stable ops</td><td class="tl-lx-1">Growing</td><td class="tl-lx-2">Full swing</td><td class="tl-lx-2">Full swing</td><td class="tl-lx-2">Full swing</td><td class="tl-lx-2">Full swing</td><td class="tl-lx-3">Reap</td><td class="tl-lx-3">Reap</td><td class="tl-lx-4">Retreat</td></tr>
+        <tr><td>PAINTING</td><td class="tl-pt-1">Admin + hiring</td><td class="tl-pt-1">Interior jobs</td><td class="tl-pt-2">Exterior begins</td><td class="tl-pt-3">Peak season</td><td class="tl-pt-3">Peak season</td><td class="tl-pt-3">Peak season</td><td class="tl-pt-2">Winding down</td><td class="tl-pt-1">Review</td><td class="tl-pt-4">Off-season</td><td class="tl-pt-4">Retreat</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
 <footer>
-  <div class="footer-title">LIONHEART PRODUCTIONS — Loric · Rob · Graeme · Lubo</div>
+  <div class="footer-title">LIONHEART MASONIC BUILDERS — Loric · Rob · Graeme · Lubo</div>
   <div class="footer-meta">Montreal · 2026</div>
 </footer>
 
